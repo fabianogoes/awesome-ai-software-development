@@ -5,6 +5,8 @@
 - [x] [Tools](#tools)
 - [x] [Books](#books)
 - [x] [Blog Post](#blog-posts)
+- [x] [Utils](#utils)
+- [x] [Concepts](#concepts)
 - [X] [Mentors](#mentors)
 
 ## Tools
@@ -47,16 +49,44 @@
 
 ---
 
+## Utils
+
+- [Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html)
+- [Architecture decision record (ADR)](https://github.com/joelparkerhenderson/architecture-decision-record)
+
+## Concepts
+
+### Chat
+???
+
+### Prompt
+???
+
+### Token
+???
+
+### Context
+???
+
+### Model
+???
+
+### MCP
+???
+
+### Skil
+???
+
+### Plugin
+???
+
+---
+
 ## Mentors
 
 - ???
 
 ---
-
-## Utils
-
-- [Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html)
-- [Architecture decision record (ADR)](https://github.com/joelparkerhenderson/architecture-decision-record)
 
 <img src="MIT.png" height="50" width="150">
 
