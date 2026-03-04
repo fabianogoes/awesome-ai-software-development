@@ -1,5 +1,5 @@
 # Awesome AI Software Development
-> This compendium aims to unify study materials related to software architecture in an organized way.
+> A curated list of awesome ai frameworks, libraries and software for software development.
 
 ## Table of Contents
 - [x] [Tools](#tools)
@@ -42,6 +42,7 @@
 ### Write
 
 - [10 Claude Code tips from Boris, the creator of Claude Code, summarized](https://ykdojo.github.io/claude-code-tips/content/boris-claude-code-tips)
+- [Melhores práticas para Claude Code](https://code.claude.com/docs/pt/best-practices)
 
 ### Video
 
@@ -79,12 +80,6 @@
 
 ### Plugin
 ???
-
----
-
-## Mentors
-
-- ???
 
 ---
 
