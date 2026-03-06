@@ -6,17 +6,17 @@
 
 > Uma lista curada de ferramentas, frameworks, conceitos e referências para quem usa Inteligência Artificial no desenvolvimento de software — do coding assistido por IA até agentes autônomos.
 
-## Table of Contents
+## Tabela de Contexto
 
-- [x] [Tools](#tools)
-- [x] [Posts](#posts)
-- [x] [Utils](#utils)
-- [x] [Courses](#courses)
-- [x] [Others](#others)
+- [x] [Ferramentas](#ferramentas)
+- [x] [Publicações](#publicações)
+- [x] [Utilitários](#utilitários)
+- [x] [Cursos](#cursos)
+- [x] [Outros](#outros)
 
-## Tools
+## Ferramentas
 
-### Code
+### Código/CLI
 
 | Ferramenta  | Descrição                                                                                  | Link                                                        | ...                            |
 | ----------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------- | ------------------------------ |
@@ -36,7 +36,7 @@
 | Zed                      | Editor open-source em Rust, extremamente rápido, suporta Claude, Gemini e modelos locais via Ollama | [zed.dev](https://zed.dev/)                             | :hourglass:        |
 | VS Code + GitHub Copilot | O VS Code com Copilot nativo e ecossistema de extensões de IA (Continue, Codeium, RooCode)          | [code.visualstudio.com](https://code.visualstudio.com/) | :star::star::star: |
 
-### Frameworks/Libs
+### Frameworks/Bibliotecas
 
 | Ferramenta                   | Descrição                                                     | Link                                                        | ...                            |
 | ---------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------ |
@@ -50,7 +50,7 @@
 
 ---
 
-## Posts
+## Publicações
 
 ### Write
 
@@ -72,7 +72,7 @@
 
 ---
 
-## Utils
+## Utilitários
 
 | Ferramenta                                         | Descrição                                                | Link                                                                  |
 | -------------------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -80,16 +80,17 @@
 | Architecture Decision Record (ADR)                 | Templates e guias para registrar decisões de arquitetura | <https://github.com/joelparkerhenderson/architecture-decision-record> |
 | CLAUDE.md Guide                                    | Guia oficial da Anthropic para configurar memory files   | <https://code.claude.com/docs/en/memory>                              |
 
-## Courses
+## Cursos
 
 - [Claude 101 - Anthropic Academy](https://anthropic.skilljar.com/claude-101)
 - [Curso de Inteligência Artificial para Devs (Nova Versão)
 com Rodrigo Branas e Pedro Nauck](https://branas.io/cursos/inteligencia-artificial-para-devs/?utm_source=campaign1)
 
-## Others
+## Outros
 
 - [AI Concepts](CONCEPTS.md)
 - [Books](BOOKS.md)
+- [Claude Tips](CLAUDE.md)
 
 ---
 
