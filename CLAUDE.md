@@ -37,6 +37,7 @@ Entries marked `???` are placeholders awaiting content contributions.
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------- |
 | Grafana MCP server | This provides access to your Grafana instance and the surrounding ecosystem.                                                  | https://github.com/grafana/mcp-grafana      | :hourglass: |
 | Playwright MCP     | Servidor MCP de automação de navegador e testes E2E com Playwright, permitindo que LLMs interajam com páginas via snapshots de acessibilidade. | https://github.com/microsoft/playwright-mcp | :hourglass: |
+| Firecrawl          | Plugin para o Claude Code que permite rastrear e extrair conteúdo da web (crawling/scraping) para alimentar fluxos de trabalho e agentes com dados atualizados. | https://www.firecrawl.dev/integrations/claude-code | :hourglass: |
 
 ### MCP Installation
 
@@ -45,4 +46,5 @@ claude mcp add --transport sse atlasian https://mcp.atlassian.com/v1/sse -s user
 claude mcp add --transport http gh https://api.githubcopilot.com/mcp -H "Authorization: Bearer <GITHUB_TOKEN>"
 claude mcp add --transport http datadog-mcp https://mcp.us5.datadoghq.com/api/unstable/mcp-server/mcp
 claude mcp add playwright npx @playwright/mcp@latest
+claude plugin install firecrawl@claude-plugins-official
 ```
