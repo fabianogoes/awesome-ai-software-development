@@ -53,7 +53,7 @@
 
 | Skill            | Descrição                                              | Link                                                                         | ...         |
 | ---------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------- | ----------- |
-| Interface Design | Skill para design de interface                         | https://github.com/Dammyjay93/interface-design                               | :hourglass: |
+| Interface Design | Skill para design de interface                         | https://github.com/Dammyjay93/interface-design                               | :star::star::star::star::star: |
 | Frontend Design  | Skill para design e geração de frontend                | https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design  | :hourglass: |
 
 ---
