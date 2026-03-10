@@ -12,6 +12,7 @@
 - [x] [Publicações](#publicações)
 - [x] [Utilitários](#utilitários)
 - [x] [Cursos](#cursos)
+- [x] [Skills](#skills)
 - [x] [Outros](#outros)
 
 ## Ferramentas
@@ -85,6 +86,11 @@
 - [Claude 101 - Anthropic Academy](https://anthropic.skilljar.com/claude-101)
 - [Curso de Inteligência Artificial para Devs (Nova Versão)
 com Rodrigo Branas e Pedro Nauck](https://branas.io/cursos/inteligencia-artificial-para-devs/?utm_source=campaign1)
+
+## Skills
+
+- [Interface Design Skill (Dammyjay93)](https://github.com/Dammyjay93/interface-design)
+- [Frontend Design Plugin (Anthropic)](https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design)
 
 ## Outros
 
