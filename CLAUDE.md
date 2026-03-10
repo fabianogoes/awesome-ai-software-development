@@ -32,12 +32,18 @@ Entries marked `???` are placeholders awaiting content contributions.
 - [Agent Skills](https://agentskills.io/home)
 
 ## MCP
+Aprenda como conectar o Claude Code às suas ferramentas com o Model Context Protocol.
+
+Claude Code pode se conectar a centenas de ferramentas externas e fontes de dados por meio do Model Context Protocol (MCP), um padrão de código aberto para integrações de ferramentas de IA. Os servidores MCP dão ao Claude Code acesso às suas ferramentas, bancos de dados e APIs.
+
+[Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp)
 
 | MCP                | Descrição                                                                                                                     | Link                                        | ...         |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------- |
 | Grafana MCP server | This provides access to your Grafana instance and the surrounding ecosystem.                                                  | https://github.com/grafana/mcp-grafana      | :hourglass: |
 | Playwright MCP     | Servidor MCP de automação de navegador e testes E2E com Playwright, permitindo que LLMs interajam com páginas via snapshots de acessibilidade. | https://github.com/microsoft/playwright-mcp | :hourglass: |
 | Firecrawl          | Plugin para o Claude Code que permite rastrear e extrair conteúdo da web (crawling/scraping) para alimentar fluxos de trabalho e agentes com dados atualizados. | https://www.firecrawl.dev/integrations/claude-code | :hourglass: |
+| Netlify MCP Server | Dê aos agentes de código a capacidade de construir, implantar e muito mais com o Netlify MCP Server.                          | https://docs.netlify.com/build/build-with-ai/netlify-mcp-server/ | :hourglass: |
 
 ### MCP Installation
 
@@ -46,5 +52,23 @@ claude mcp add --transport sse atlasian https://mcp.atlassian.com/v1/sse -s user
 claude mcp add --transport http gh https://api.githubcopilot.com/mcp -H "Authorization: Bearer <GITHUB_TOKEN>"
 claude mcp add --transport http datadog-mcp https://mcp.us5.datadoghq.com/api/unstable/mcp-server/mcp
 claude mcp add playwright npx @playwright/mcp@latest
+claude mcp add --transport http netlify https://netlify-mcp.netlify.app/mcp
+```
+
+## Plugins
+
+| MCP                | Descrição                                                                                                                     | Link                                        | ...         |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------- |
+| Firecrawl          | Plugin para o Claude Code que permite rastrear e extrair conteúdo da web (crawling/scraping) para alimentar fluxos de trabalho e agentes com dados atualizados. | https://www.firecrawl.dev/integrations/claude-code | :hourglass: |
+
+```bash
 claude plugin install firecrawl@claude-plugins-official
 ```
+
+## Tips
+
+- [10 Claude Code tips from Boris, the creator of Claude Code, summarized](https://ykdojo.github.io/claude-code-tips/content/boris-claude-code-tips)
+
+## Courses
+
+- [Claude 101 by Anthropic](https://anthropic.skilljar.com/claude-101)
