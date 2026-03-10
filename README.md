@@ -93,6 +93,8 @@
 - [Claude 101 - Anthropic Academy](https://anthropic.skilljar.com/claude-101)
 - [Curso de Inteligência Artificial para Devs (Nova Versão)
 com Rodrigo Branas e Pedro Nauck](https://branas.io/cursos/inteligencia-artificial-para-devs/?utm_source=campaign1)
+- [Claude Code: A Highly Agentic Coding Assistant by DeepLearning.ai](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant)
+- [Gemini CLI: Code & Create with an Open-Source Agent by DeepLearning.ai](https://www.deeplearning.ai/short-courses/gemini-cli-code-and-create-with-an-open-source-agent/)
 
 ## Outros
 
