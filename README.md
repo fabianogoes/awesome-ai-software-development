@@ -102,6 +102,8 @@ com Rodrigo Branas e Pedro Nauck](https://branas.io/cursos/inteligencia-artifici
 - [AI Concepts](CONCEPTS.md)
 - [Books](BOOKS.md)
 - [Claude Tips](CLAUDE.md)
+- [Awesome Claude](https://awesomeclaude.ai/)
+- [RALPH WIGGUM AI LOOP TECHNIQUE](https://awesomeclaude.ai/ralph-wiggum)
 
 ---
 
