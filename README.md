@@ -29,13 +29,14 @@
 
 ### IDE
 
-| Ferramenta               | Descrição                                                                                           | Link                                                    | ...                |
-| ------------------------ | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------ |
-| Cursor                   | IDE com IA nativa integrada ao fluxo de edição                                                      | [cursor.com](https://cursor.com/)                       | :hourglass:        |
-| Antigravity              | IDE da Google com agente de coding agentico avançado                                                | [antigravity.google](https://antigravity.google/)       | :star::star:       |
-| Windsurf                 | IDE com agente "Cascade" (modos Write, Chat e Turbo), concorrente direto ao Cursor                  | [windsurf.com](https://windsurf.com/)                   | :hourglass:        |
-| Zed                      | Editor open-source em Rust, extremamente rápido, suporta Claude, Gemini e modelos locais via Ollama | [zed.dev](https://zed.dev/)                             | :hourglass:        |
-| VS Code + GitHub Copilot | O VS Code com Copilot nativo e ecossistema de extensões de IA (Continue, Codeium, RooCode)          | [code.visualstudio.com](https://code.visualstudio.com/) | :star::star::star: |
+| Ferramenta               | Descrição                                                                                           | Link                             | ...                |
+| ------------------------ | --------------------------------------------------------------------------------------------------- | ---------------------------------| ------------------ |
+| Cursor                   | IDE com IA nativa integrada ao fluxo de edição                                                      | https://cursor.com/              | :hourglass:        |
+| Antigravity              | IDE da Google com agente de coding agentico avançado                                                | https://antigravity.google/      | :star::star:       |
+| Windsurf                 | IDE com agente "Cascade" (modos Write, Chat e Turbo), concorrente direto ao Cursor                  | https://windsurf.com/            | :hourglass:        |
+| Zed                      | Editor open-source em Rust, extremamente rápido, suporta Claude, Gemini e modelos locais via Ollama | https://zed.dev/                 | :hourglass:        |
+| VS Code + GitHub Copilot | O VS Code com Copilot nativo e ecossistema de extensões de IA (Continue, Codeium, RooCode)          | https://code.visualstudio.com/   | :star::star::star: |
+| Trae                     | IDE gratuita da ByteDance, construída sobre VS Code, com agentes de IA integrados (GPT-4 e Claude)  | https://www.trae.ai/             | :star::star:       |
 
 ### Frameworks/Bibliotecas
 
