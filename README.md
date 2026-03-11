@@ -63,21 +63,24 @@
 
 ### Write
 
-| Post                                                                   | Link                                                                       |
-| ---------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| 10 Claude Code tips from Boris, the creator of Claude Code, summarized | <https://ykdojo.github.io/claude-code-tips/content/boris-claude-code-tips> |
-| Melhores práticas para Claude Code                                     | <https://code.claude.com/docs/pt/best-practices>                           |
-| Building effective agents                                              | <https://www.anthropic.com/engineering/building-effective-agents>          |
-| Prompt Engineering Guide                                               | <https://platform.openai.com/docs/guides/prompt-engineering>               |
-| Gemini API Cookbook                                                    | <https://github.com/google-gemini/cookbook>                                |
-| claude-code-best-practice - practice makes claude perfect              | <https://github.com/shanraisshan/claude-code-best-practice>                |
+| Post                                                                   | Link                                                                         |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 10 Claude Code tips from Boris, the creator of Claude Code, summarized | https://ykdojo.github.io/claude-code-tips/content/boris-claude-code-tips     |
+| Melhores práticas para Claude Code                                     | https://code.claude.com/docs/pt/best-practices                               |
+| Building effective agents                                              | https://www.anthropic.com/engineering/building-effective-agents              |
+| Prompt Engineering Guide                                               | https://platform.openai.com/docs/guides/prompt-engineering                   |
+| Gemini API Cookbook                                                    | https://github.com/google-gemini/cookbook                                    |
+| claude-code-best-practice - practice makes claude perfect              | https://github.com/shanraisshan/claude-code-best-practice                    |
+| Awesome Claude                                                         | https://awesomeclaude.ai/                                                    |  
+| RALPH WIGGUM AI LOOP TECHNIQUE                                         | https://awesomeclaude.ai/ralph-wiggum                                        |  
 
 ### Video
 
 | Post                                                  | Link                                               |
 | ----------------------------------------------------- | -------------------------------------------------- |
-| Como eu uso o Claude Code (Workflow Anti-Vibe Coding) | <https://youtu.be/BcLtqQ3JlMU?si=eDx2dRt-ZbAx3DGc> |
-| Claude Code best practices \| Code w/ Claude          | <https://www.youtube.com/watch?v=T-fJQHxWTAs>      |
+| Como eu uso o Claude Code (Workflow Anti-Vibe Coding) | https://youtu.be/BcLtqQ3JlMU?si=eDx2dRt-ZbAx3DGc |
+| Claude Code best practices \| Code w/ Claude          | https://www.youtube.com/watch?v=T-fJQHxWTAs      |
+| Como a Stripe criou agentes de IA que escrevem mais de 1.000 solicitações de pull por semana. | https://youtu.be/GQ6piqfwr5c?si=ZUYW7CDnR07FcOgB |
 
 ---
 
@@ -102,8 +105,6 @@ com Rodrigo Branas e Pedro Nauck](https://branas.io/cursos/inteligencia-artifici
 - [AI Concepts](CONCEPTS.md)
 - [Books](BOOKS.md)
 - [Claude Tips](CLAUDE.md)
-- [Awesome Claude](https://awesomeclaude.ai/)
-- [RALPH WIGGUM AI LOOP TECHNIQUE](https://awesomeclaude.ai/ralph-wiggum)
 
 ---
 
