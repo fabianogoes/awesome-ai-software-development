@@ -56,6 +56,7 @@
 | ---------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------- | ----------- |
 | Interface Design | Skill para design de interface                         | https://github.com/Dammyjay93/interface-design                               | :star::star::star::star::star: |
 | Frontend Design  | Skill para design e geração de frontend                | https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design  | :hourglass: |
+| Napkin           | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros. | https://github.com/blader/napkin | :hourglass: | 
 
 ---
 
