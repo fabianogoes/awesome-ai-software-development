@@ -48,7 +48,6 @@
 | Superpowers                  | Extensões e superpoderes para agentes de IA                   | https://github.com/obra/superpowers                         | :star::star::star::star::star: |
 | QMD - Query Markup Documents | Documentos interativos com queries para IA                    | https://github.com/tobi/qmd                                 | :star::star::star:             |
 | ccusage                      | Analisador de uso e custo do Claude Code                      | https://github.com/ryoppippi/ccusage                        | :hourglass:                    |
-| Agent Skills                 | Tech Leads Club - Skills para agentes de IA                   | https://agent-skills.techleads.club/skills/                 | :hourglass:                    |
 
 ### Skills
 
@@ -57,6 +56,7 @@
 | Interface Design | Skill para design de interface                         | https://github.com/Dammyjay93/interface-design                               | :star::star::star::star::star: |
 | Frontend Design  | Skill para design e geração de frontend                | https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design  | :hourglass: |
 | Napkin           | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros. | https://github.com/blader/napkin | :hourglass: | 
+| Agent Skills     | Tech Leads Club - Skills para agentes de IA            | https://agent-skills.techleads.club/skills/                                  | :hourglass: |
 
 ---
 
