@@ -57,6 +57,7 @@
 | Frontend Design  | Skill para design e geração de frontend                | https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design  | :star::star::star::star::star: |
 | Napkin           | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros. | https://github.com/blader/napkin | :star: | 
 | Agent Skills     | Tech Leads Club - Skills para agentes de IA            | https://agent-skills.techleads.club/skills/                                  | :star::star::star::star::star: |
+| Agency Agents    | Nascida de um tópico do Reddit e de meses de iteração, a Agência é uma coleção crescente de personalidades de agentes de IA meticulosamente elaboradas | https://github.com/msitarzewski/agency-agents | :star::star::star: |
 
 ---
 
