@@ -17,13 +17,13 @@
 
 ## Ferramentas
 
-### Código/CLI
+### CLI
 
 | Ferramenta  | Descrição                                                                                  | Link                                                        | ...                            |
 | ----------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------- | ------------------------------ |
 | Claude Code | Agente de coding da Anthropic, profundo entendimento de codebases e contexto longo         | [code.claude.com](https://code.claude.com/docs/pt/overview) | :star::star::star::star::star: |
-| Codex       | Ferramenta de coding da OpenAI, geração e edição de código via CLI                         | [openai.com](https://openai.com/pt-BR/codex/)               | :hourglass:                    |
-| Gemini CLI  | CLI open-source do Google com integração ao Gemini e Google Search                         | [geminicli.com](https://geminicli.com/)                     | :star::star::star:             |
+| Codex       | Ferramenta de coding da OpenAI, geração e edição de código via CLI                         | [openai.com](https://openai.com/pt-BR/codex/)               | :star::star::star:                    |
+| Gemini CLI  | CLI open-source do Google com integração ao Gemini e Google Search                         | [geminicli.com](https://geminicli.com/)                     | :star:             |
 | Aider       | Pair programming no terminal, integra com Git local, suporta Claude/GPT/Ollama             | [aider.chat](https://aider.chat/)                           | :hourglass:                    |
 | OpenCode    | Alternativa open-source ao Claude Code, suporta praticamente todos os provedores de modelo | [github.com/sst/opencode](https://github.com/sst/opencode)  | :hourglass:                    |
 
@@ -32,11 +32,11 @@
 | Ferramenta               | Descrição                                                                                           | Link                             | ...                |
 | ------------------------ | --------------------------------------------------------------------------------------------------- | ---------------------------------| ------------------ |
 | Cursor                   | IDE com IA nativa integrada ao fluxo de edição                                                      | https://cursor.com/              | :hourglass:        |
-| Antigravity              | IDE da Google com agente de coding agentico avançado                                                | https://antigravity.google/      | :star::star:       |
+| Antigravity              | IDE da Google com agente de coding agentico avançado                                                | https://antigravity.google/      | :star:             |
 | Windsurf                 | IDE com agente "Cascade" (modos Write, Chat e Turbo), concorrente direto ao Cursor                  | https://windsurf.com/            | :hourglass:        |
 | Zed                      | Editor open-source em Rust, extremamente rápido, suporta Claude, Gemini e modelos locais via Ollama | https://zed.dev/                 | :hourglass:        |
 | VS Code + GitHub Copilot | O VS Code com Copilot nativo e ecossistema de extensões de IA (Continue, Codeium, RooCode)          | https://code.visualstudio.com/   | :star::star::star: |
-| Trae                     | IDE gratuita da ByteDance, construída sobre VS Code, com agentes de IA integrados (GPT-4 e Claude)  | https://www.trae.ai/             | :star::star:       |
+| Trae                     | IDE gratuita da ByteDance, construída sobre VS Code, com agentes de IA integrados (GPT-4 e Claude)  | https://www.trae.ai/             | :star:             |
 
 ### Frameworks/Bibliotecas
 
@@ -47,16 +47,16 @@
 | SpecKit                      | Guia e kit para spec-driven development no GitHub             | https://github.com/github/spec-kit/blob/main/spec-driven.md | :hourglass:                    |
 | Superpowers                  | Extensões e superpoderes para agentes de IA                   | https://github.com/obra/superpowers                         | :star::star::star::star::star: |
 | QMD - Query Markup Documents | Documentos interativos com queries para IA                    | https://github.com/tobi/qmd                                 | :star::star::star:             |
-| ccusage                      | Analisador de uso e custo do Claude Code                      | https://github.com/ryoppippi/ccusage                        | :hourglass:                    |
+| ccusage                      | Analisador de uso e custo do Claude Code                      | https://github.com/ryoppippi/ccusage                        | :star::star::star:                   |
 
 ### Skills
 
 | Skill            | Descrição                                              | Link                                                                         | ...         |
 | ---------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------- | ----------- |
 | Interface Design | Skill para design de interface                         | https://github.com/Dammyjay93/interface-design                               | :star::star::star::star::star: |
-| Frontend Design  | Skill para design e geração de frontend                | https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design  | :hourglass: |
-| Napkin           | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros. | https://github.com/blader/napkin | :hourglass: | 
-| Agent Skills     | Tech Leads Club - Skills para agentes de IA            | https://agent-skills.techleads.club/skills/                                  | :hourglass: |
+| Frontend Design  | Skill para design e geração de frontend                | https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design  | :star::star::star::star::star: |
+| Napkin           | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros. | https://github.com/blader/napkin | :star: | 
+| Agent Skills     | Tech Leads Club - Skills para agentes de IA            | https://agent-skills.techleads.club/skills/                                  | :star::star::star::star::star: |
 
 ---
 
