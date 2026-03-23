@@ -4,7 +4,7 @@
     <img src="claude-jumping.svg" alt="Claude Code mascot jumping" width="120" height="100">
 </p>
 
-> Uma lista curada de ferramentas, frameworks, conceitos e referências para quem usa Inteligência Artificial no desenvolvimento de software — do coding assistido por IA até agentes autônomos.
+> Uma lista curada de ferramentas, frameworks, conceitos e referências para quem usa Inteligência Artificial no desenvolvimento de software.
 
 ## Tabela de Contexto
 
