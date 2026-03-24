@@ -76,6 +76,7 @@ AI coding agents
 | claude-code-best-practice - practice makes claude perfect              | https://github.com/shanraisshan/claude-code-best-practice                    |
 | Awesome Claude                                                         | https://awesomeclaude.ai/                                                    |  
 | RALPH WIGGUM AI LOOP TECHNIQUE                                         | https://awesomeclaude.ai/ralph-wiggum                                        |  
+| Anatomy of the .claude/ folder                                         | https://x.com/akshay_pachaar/status/2035341800739877091 |
 
 ### Video
 
