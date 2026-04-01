@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome AI Software Development</title>
+  <meta name="description" content="Uma lista curada de ferramentas, frameworks, conceitos e referências para quem usa Inteligência Artificial no desenvolvimento de software.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #0C0A09;
+      --bg-surface: #1C1917;
+      --bg-elevated: #292524;
+      --bg-hover: #322E2B;
+      --accent: #E07C4C;
+      --accent-soft: rgba(224, 124, 76, 0.15);
+      --accent-glow: rgba(224, 124, 76, 0.08);
+      --accent-light: #F2A27B;
+      --green: #6EE7A0;
+      --green-soft: rgba(110, 231, 160, 0.12);
+      --blue: #7CB3F2;
+      --blue-soft: rgba(124, 179, 242, 0.12);
+      --yellow: #F2D07C;
+      --yellow-soft: rgba(242, 208, 124, 0.12);
+      --purple: #B07CF2;
+      --purple-soft: rgba(176, 124, 242, 0.12);
+      --text-primary: #FAFAF9;
+      --text-secondary: #A8A29E;
+      --text-muted: #78716C;
+      --border: #2A2725;
+      --border-light: #3D3835;
+      --font-display: 'Bricolage Grotesque', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 280px;
+      --content-max: 1000px;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: var(--accent-light); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent); }
+    ::selection { background: var(--accent); color: var(--bg-deep); }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    .sidebar {
+      position: fixed; top: 0; left: 0;
+      width: var(--sidebar-width); height: 100vh;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      display: flex; flex-direction: column;
+      z-index: 100; overflow-y: auto;
+      transition: transform 0.3s ease;
+    }
+    .sidebar-brand {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 2.5rem; padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-brand svg { width: 36px; height: 32px; flex-shrink: 0; }
+    .sidebar-brand span {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 1.05rem; color: var(--text-primary); line-height: 1.2;
+    }
+    .nav-group { margin-bottom: 1.75rem; }
+    .nav-group-label {
+      font-family: var(--font-mono); font-size: 0.65rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--text-muted); margin-bottom: 0.6rem; padding-left: 0.75rem;
+    }
+    .nav-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.75rem; border-radius: var(--radius-sm);
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--text-secondary); transition: all var(--transition);
+      position: relative;
+    }
+    .nav-link:hover { color: var(--text-primary); background: var(--accent-glow); }
+    .nav-link.active { color: var(--accent); background: var(--accent-soft); }
+    .nav-link.active::before {
+      content: ''; position: absolute; left: 0; top: 50%;
+      transform: translateY(-50%); width: 3px; height: 60%;
+      background: var(--accent); border-radius: 0 2px 2px 0;
+    }
+    .nav-icon { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+    .sidebar-footer { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .sidebar-footer a { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted); padding: 0.35rem 0; }
+    .sidebar-footer a:hover { color: var(--text-secondary); }
+
+    .menu-toggle {
+      display: none; position: fixed; top: 1rem; left: 1rem; z-index: 200;
+      width: 44px; height: 44px; border-radius: var(--radius-sm);
+      background: var(--bg-surface); border: 1px solid var(--border);
+      color: var(--text-primary); font-size: 1.25rem; cursor: pointer;
+      align-items: center; justify-content: center;
+    }
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 50; backdrop-filter: blur(4px); }
+
+    .main { margin-left: var(--sidebar-width); min-height: 100vh; }
+    .content { max-width: var(--content-max); margin: 0 auto; padding: 3rem 3rem 6rem; }
+
+    .hero { position: relative; padding: 4rem 0 3rem; margin-bottom: 3rem; }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: -3rem; right: -3rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-light) 20%, var(--border-light) 80%, transparent);
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.25rem;
+      padding: 0.35rem 0.85rem; background: var(--accent-soft);
+      border-radius: 100px; border: 1px solid rgba(224, 124, 76, 0.2);
+    }
+    .hero h1 {
+      font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, var(--yellow) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-description { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; line-height: 1.7; }
+    .hero-stats { display: flex; gap: 2rem; margin-top: 2rem; }
+    .hero-stat { display: flex; flex-direction: column; }
+    .hero-stat-value { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--text-primary); }
+    .hero-stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+
+    .section { margin-bottom: 4rem; animation: fadeUp 0.5s ease both; }
+    .section-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.75rem; padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon {
+      width: 40px; height: 40px; border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .section-icon.orange { background: var(--accent-soft); }
+    .section-icon.green { background: var(--green-soft); }
+    .section-icon.blue { background: var(--blue-soft); }
+    .section-icon.yellow { background: var(--yellow-soft); }
+    .section-icon.purple { background: var(--purple-soft); }
+    .section-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+    .card {
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      transition: all var(--transition); position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: transparent; transition: background var(--transition);
+    }
+    .card:hover {
+      border-color: var(--border-light); background: var(--bg-elevated);
+      transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .card:hover::before { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.6rem; }
+    .card-name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--text-primary); }
+    .card-name a { color: inherit; }
+    .card-name a:hover { color: var(--accent); }
+    .card-description { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border);
+    }
+    .card-link { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.3rem; }
+    .card-link:hover { color: var(--accent-light); }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      padding: 0.2rem 0.55rem; border-radius: 100px;
+      font-size: 0.7rem; font-weight: 600; font-family: var(--font-mono); white-space: nowrap;
+    }
+    .badge-essential { background: var(--accent-soft); color: var(--accent); border: 1px solid rgba(224, 124, 76, 0.25); }
+    .badge-recommended { background: var(--green-soft); color: var(--green); border: 1px solid rgba(110, 231, 160, 0.2); }
+    .badge-new { background: var(--blue-soft); color: var(--blue); border: 1px solid rgba(124, 179, 242, 0.2); }
+    .badge-testing { background: var(--yellow-soft); color: var(--yellow); border: 1px solid rgba(242, 208, 124, 0.2); }
+    .rating { display: flex; gap: 3px; }
+    .rating-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-light); }
+    .rating-dot.filled { background: var(--accent); }
+
+    .pub-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .pub-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.25rem; background: var(--bg-surface);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .pub-item:hover { border-color: var(--border-light); background: var(--bg-elevated); transform: translateX(4px); }
+    .pub-icon {
+      width: 36px; height: 36px; border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .pub-icon.article { background: var(--green-soft); }
+    .pub-icon.video { background: var(--purple-soft); }
+    .pub-content { flex: 1; min-width: 0; }
+    .pub-title { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); display: block; }
+    .pub-title:hover { color: var(--accent-light); }
+    .pub-source { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem; }
+    .pub-arrow { color: var(--text-muted); font-size: 0.85rem; transition: all var(--transition); }
+    .pub-item:hover .pub-arrow { color: var(--accent); transform: translateX(3px); }
+
+    .glossary { display: flex; flex-direction: column; gap: 0.75rem; }
+    .glossary-item {
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: border-color var(--transition);
+    }
+    .glossary-item:hover { border-color: var(--border-light); }
+    .glossary-toggle {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.25rem; background: none; border: none; cursor: pointer;
+      color: var(--text-primary); font-family: var(--font-body);
+    }
+    .glossary-term { display: flex; align-items: center; gap: 0.6rem; }
+    .glossary-term-text { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+    .glossary-term-tag {
+      font-family: var(--font-mono); font-size: 0.65rem;
+      padding: 0.15rem 0.45rem; border-radius: 4px;
+      background: var(--accent-soft); color: var(--accent);
+    }
+    .glossary-chevron { font-size: 0.8rem; color: var(--text-muted); transition: transform var(--transition); }
+    .glossary-item.open .glossary-chevron { transform: rotate(180deg); }
+    .glossary-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .glossary-item.open .glossary-body { max-height: 300px; }
+    .glossary-body-inner {
+      padding: 0 1.25rem 1.25rem; font-size: 0.875rem;
+      color: var(--text-secondary); line-height: 1.7;
+      border-top: 1px solid var(--border); padding-top: 1rem;
+    }
+
+    .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .book-card {
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: all var(--transition); display: flex; flex-direction: column;
+    }
+    .book-card:hover {
+      border-color: var(--border-light); background: var(--bg-elevated);
+      transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .book-emoji { font-size: 2rem; margin-bottom: 0.75rem; }
+    .book-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.35rem; }
+    .book-title a { color: inherit; }
+    .book-title a:hover { color: var(--accent); }
+    .book-author { font-size: 0.85rem; color: var(--text-muted); }
+
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+    .course-card {
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      transition: all var(--transition); display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .course-card:hover {
+      border-color: var(--border-light); background: var(--bg-elevated);
+      transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .course-icon {
+      width: 40px; height: 40px; border-radius: var(--radius-sm);
+      background: var(--purple-soft); display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .course-info { flex: 1; }
+    .course-name { font-weight: 600; font-size: 0.9rem; color: var(--text-primary); display: block; margin-bottom: 0.25rem; }
+    .course-name:hover { color: var(--accent-light); }
+    .course-provider { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); }
+
+    .util-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .util-item {
+      display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem;
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius); transition: all var(--transition);
+    }
+    .util-item:hover { border-color: var(--border-light); background: var(--bg-elevated); }
+    .util-icon {
+      width: 36px; height: 36px; border-radius: var(--radius-sm);
+      background: var(--yellow-soft); display: flex; align-items: center;
+      justify-content: center; font-size: 1rem; flex-shrink: 0;
+    }
+    .util-content { flex: 1; }
+    .util-name { font-weight: 600; font-size: 0.9rem; color: var(--text-primary); display: block; margin-bottom: 0.2rem; }
+    .util-name:hover { color: var(--accent-light); }
+    .util-desc { font-size: 0.825rem; color: var(--text-secondary); line-height: 1.6; }
+
+    .footer {
+      margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-license { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted); }
+    .footer-license-badge {
+      padding: 0.25rem 0.6rem; background: var(--bg-elevated);
+      border: 1px solid var(--border); border-radius: 4px;
+      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; color: var(--text-secondary);
+    }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--text-secondary); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section:nth-child(1) { animation-delay: 0s; }
+    .section:nth-child(2) { animation-delay: 0.05s; }
+    .section:nth-child(3) { animation-delay: 0.1s; }
+    .section:nth-child(4) { animation-delay: 0.15s; }
+    .section:nth-child(5) { animation-delay: 0.2s; }
+    .section:nth-child(6) { animation-delay: 0.25s; }
+    .section:nth-child(7) { animation-delay: 0.3s; }
+
+    @media (max-width: 900px) {
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: flex; }
+      .overlay.visible { display: block; }
+      .main { margin-left: 0; }
+      .content { padding: 4.5rem 1.5rem 4rem; }
+      .card-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .content { padding: 4.5rem 1rem 3rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero-stats { flex-wrap: wrap; gap: 1rem; }
+      .book-grid, .course-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Abrir menu">
+    <span id="menu-icon">&#9776;</span>
+  </button>
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90">
+        <style>
+          .sb-body{animation:sb-jump .5s ease-in-out infinite;transform-origin:center bottom}
+          .sb-shadow{animation:sb-sh .5s ease-in-out infinite}
+          .sb-la{animation:sb-wl .5s ease-in-out infinite;transform-origin:right center}
+          .sb-ra{animation:sb-wr .5s ease-in-out infinite;transform-origin:left center}
+          .sb-le{animation:sb-eb .5s ease-in-out infinite;transform-origin:center bottom}
+          .sb-re{animation:sb-eb .5s ease-in-out infinite .1s;transform-origin:center bottom}
+          @keyframes sb-jump{0%,100%{transform:translateY(0) scaleY(1) scaleX(1)}30%{transform:translateY(-16px) scaleY(1.1) scaleX(.95)}50%{transform:translateY(-18px) scaleY(1.05) scaleX(.98)}80%{transform:translateY(-5px) scaleY(.95) scaleX(1.05)}}
+          @keyframes sb-sh{0%,100%{transform:scaleX(1);opacity:.25}50%{transform:scaleX(.4);opacity:.08}}
+          @keyframes sb-wl{0%,100%{transform:rotate(0)}50%{transform:rotate(-25deg)}}
+          @keyframes sb-wr{0%,100%{transform:rotate(0)}50%{transform:rotate(25deg)}}
+          @keyframes sb-eb{0%,100%{transform:scaleY(1)}40%{transform:scaleY(1.2)}60%{transform:scaleY(.85)}}
+        </style>
+        <ellipse class="sb-shadow" cx="50" cy="82" rx="22" ry="5" fill="#000"/>
+        <g class="sb-body">
+          <rect class="sb-le" x="22" y="10" width="8" height="14" fill="#E07C4C"/>
+          <rect class="sb-re" x="70" y="10" width="8" height="14" fill="#E07C4C"/>
+          <rect x="18" y="24" width="64" height="4" fill="#E07C4C"/>
+          <rect x="14" y="28" width="72" height="32" fill="#E07C4C"/>
+          <rect x="30" y="34" width="8" height="10" fill="#000"/>
+          <rect x="62" y="34" width="8" height="10" fill="#000"/>
+          <rect class="sb-la" x="2" y="36" width="12" height="8" fill="#E07C4C"/>
+          <rect class="sb-ra" x="86" y="36" width="12" height="8" fill="#E07C4C"/>
+          <rect x="24" y="60" width="12" height="14" fill="#E07C4C"/>
+          <rect x="64" y="60" width="12" height="14" fill="#E07C4C"/>
+        </g>
+      </svg>
+      <span>Awesome AI<br>Software Dev</span>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Ferramentas</div>
+      <a href="#cli" class="nav-link"><span class="nav-icon">&#9000;</span> CLI Agents</a>
+      <a href="#ide" class="nav-link"><span class="nav-icon">&#9998;</span> IDEs</a>
+      <a href="#frameworks" class="nav-link"><span class="nav-icon">&#9881;</span> Frameworks</a>
+      <a href="#skills" class="nav-link"><span class="nav-icon">&#10024;</span> Skills</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Aprender</div>
+      <a href="#artigos" class="nav-link"><span class="nav-icon">&#9997;</span> Artigos</a>
+      <a href="#videos" class="nav-link"><span class="nav-icon">&#9654;</span> Videos</a>
+      <a href="#cursos" class="nav-link"><span class="nav-icon">&#127891;</span> Cursos</a>
+      <a href="#livros" class="nav-link"><span class="nav-icon">&#128214;</span> Livros</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Referencia</div>
+      <a href="#utilitarios" class="nav-link"><span class="nav-icon">&#128295;</span> Utilidades</a>
+      <a href="#conceitos" class="nav-link"><span class="nav-icon">&#128161;</span> Conceitos</a>
+    </div>
+    <div class="sidebar-footer">
+      <a href="https://github.com/fabianogoes/awesome-ai-software-development" target="_blank" rel="noopener">&#10033; GitHub Repo</a>
+      <a href="https://code.claude.com/docs/pt/overview" target="_blank" rel="noopener">&#10140; Claude Code Docs</a>
+    </div>
+  </nav>
+
+  <div class="main">
+    <div class="content">
+      <header class="hero">
+        <div class="hero-eyebrow">&#9733; Lista curada</div>
+        <h1>
+          <span class="gradient-text">Awesome AI</span><br>
+          Software Development
+        </h1>
+        <p class="hero-description">
+          Ferramentas, frameworks, conceitos e refer&ecirc;ncias para quem usa Intelig&ecirc;ncia Artificial no desenvolvimento de software.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-value">23+</span>
+            <span class="hero-stat-label">Ferramentas</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">11</span>
+            <span class="hero-stat-label">Conceitos</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">4</span>
+            <span class="hero-stat-label">Cursos</span>
+          </div>
+        </div>
+      </header>
+
+<section class="section" id="cli">
+  <div class="section-header">
+    <div class="section-icon orange">&#9000;</div>
+    <h2 class="section-title">CLI Agents</h2>
+  </div>
+  
+  <div class="card-grid">
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://code.claude.com/docs/pt/overview" target="_blank" rel="noopener">Claude Code</a></span>
+    <span class="badge badge-essential">Essencial</span>
+  </div>
+  <p class="card-description">Agente de coding da Anthropic, profundo entendimento de codebases e contexto longo</p>
+  <div class="card-footer">
+    <span class="card-link">code.claude.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://openai.com/pt-BR/codex/" target="_blank" rel="noopener">Codex</a></span>
+    <span class="badge badge-recommended">Recomendado</span>
+  </div>
+  <p class="card-description">Ferramenta de coding da OpenAI, geração e edição de código via CLI</p>
+  <div class="card-footer">
+    <span class="card-link">openai.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://geminicli.com/" target="_blank" rel="noopener">Gemini CLI</a></span>
+    <span class="badge badge-new">Novo</span>
+  </div>
+  <p class="card-description">CLI open-source do Google com integração ao Gemini e Google Search</p>
+  <div class="card-footer">
+    <span class="card-link">geminicli.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://aider.chat/" target="_blank" rel="noopener">Aider</a></span>
+    <span class="badge badge-testing">A testar</span>
+  </div>
+  <p class="card-description">Pair programming no terminal, integra com Git local, suporta Claude/GPT/Ollama</p>
+  <div class="card-footer">
+    <span class="card-link">aider.chat</span>
+    
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/sst/opencode" target="_blank" rel="noopener">OpenCode</a></span>
+    <span class="badge badge-testing">A testar</span>
+  </div>
+  <p class="card-description">Alternativa open-source ao Claude Code, suporta praticamente todos os provedores de modelo</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section" id="ide">
+  <div class="section-header">
+    <div class="section-icon green">&#9998;</div>
+    <h2 class="section-title">IDEs com IA</h2>
+  </div>
+  
+  <div class="card-grid">
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://cursor.com/" target="_blank" rel="noopener">Cursor</a></span>
+    <span class="badge badge-testing">A testar</span>
+  </div>
+  <p class="card-description">IDE com IA nativa integrada ao fluxo de edição</p>
+  <div class="card-footer">
+    <span class="card-link">cursor.com</span>
+    
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://antigravity.google/" target="_blank" rel="noopener">Antigravity</a></span>
+    <span class="badge badge-new">Novo</span>
+  </div>
+  <p class="card-description">IDE da Google com agente de coding agentico avançado</p>
+  <div class="card-footer">
+    <span class="card-link">antigravity.google</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://windsurf.com/" target="_blank" rel="noopener">Windsurf</a></span>
+    <span class="badge badge-testing">A testar</span>
+  </div>
+  <p class="card-description">IDE com agente &quot;Cascade&quot; (modos Write, Chat e Turbo), concorrente direto ao Cursor</p>
+  <div class="card-footer">
+    <span class="card-link">windsurf.com</span>
+    
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://zed.dev/" target="_blank" rel="noopener">Zed</a></span>
+    <span class="badge badge-testing">A testar</span>
+  </div>
+  <p class="card-description">Editor open-source em Rust, extremamente rápido, suporta Claude, Gemini e modelos locais via Ollama</p>
+  <div class="card-footer">
+    <span class="card-link">zed.dev</span>
+    
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code + GitHub Copilot</a></span>
+    <span class="badge badge-recommended">Recomendado</span>
+  </div>
+  <p class="card-description">O VS Code com Copilot nativo e ecossistema de extensões de IA (Continue, Codeium, RooCode)</p>
+  <div class="card-footer">
+    <span class="card-link">code.visualstudio.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://www.trae.ai/" target="_blank" rel="noopener">Trae</a></span>
+    <span class="badge badge-new">Novo</span>
+  </div>
+  <p class="card-description">IDE gratuita da ByteDance, construída sobre VS Code, com agentes de IA integrados (GPT-4 e Claude)</p>
+  <div class="card-footer">
+    <span class="card-link">trae.ai</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section" id="frameworks">
+  <div class="section-header">
+    <div class="section-icon blue">&#9881;</div>
+    <h2 class="section-title">Frameworks &amp; Bibliotecas</h2>
+  </div>
+  
+  <div class="card-grid">
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/gsd-build/get-shit-done" target="_blank" rel="noopener">GSD - GET SHIT DONE</a></span>
+    <span class="badge badge-new">Novo</span>
+  </div>
+  <p class="card-description">Framework para automação de tarefas de desenvolvimento com IA</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/Fission-AI/OpenSpec" target="_blank" rel="noopener">OpenSpec</a></span>
+    <span class="badge badge-recommended">Recomendado</span>
+  </div>
+  <p class="card-description">Framework de especificação orientado a IA</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/github/spec-kit/blob/main/spec-driven.md" target="_blank" rel="noopener">SpecKit</a></span>
+    <span class="badge badge-testing">A testar</span>
+  </div>
+  <p class="card-description">Guia e kit para spec-driven development no GitHub</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/obra/superpowers" target="_blank" rel="noopener">Superpowers</a></span>
+    <span class="badge badge-essential">Essencial</span>
+  </div>
+  <p class="card-description">Extensões e superpoderes para agentes de IA</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://buildermethods.com/agent-os" target="_blank" rel="noopener">Agent OS</a></span>
+    <span class="badge badge-testing">A testar</span>
+  </div>
+  <p class="card-description">Framework para construir e orquestrar agentes de IA com fluxos reproduzíveis</p>
+  <div class="card-footer">
+    <span class="card-link">buildermethods.com</span>
+    
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/tobi/qmd" target="_blank" rel="noopener">QMD - Query Markup Documents</a></span>
+    <span class="badge badge-recommended">Recomendado</span>
+  </div>
+  <p class="card-description">Documentos interativos com queries para IA</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/ryoppippi/ccusage" target="_blank" rel="noopener">ccusage</a></span>
+    <span class="badge badge-recommended">Recomendado</span>
+  </div>
+  <p class="card-description">Analisador de uso e custo do Claude Code</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section" id="skills">
+  <div class="section-header">
+    <div class="section-icon purple">&#10024;</div>
+    <h2 class="section-title">Skills &amp; Plugins</h2>
+  </div>
+  
+  <div class="card-grid">
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/Dammyjay93/interface-design" target="_blank" rel="noopener">Interface Design</a></span>
+    <span class="badge badge-essential">Essencial</span>
+  </div>
+  <p class="card-description">Skill para design de interface</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design" target="_blank" rel="noopener">Frontend Design</a></span>
+    <span class="badge badge-essential">Essencial</span>
+  </div>
+  <p class="card-description">Skill para design e geração de frontend</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/blader/napkin" target="_blank" rel="noopener">Napkin</a></span>
+    <span class="badge badge-new">Novo</span>
+  </div>
+  <p class="card-description">Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://agent-skills.techleads.club/skills/" target="_blank" rel="noopener">Agent Skills</a></span>
+    <span class="badge badge-essential">Essencial</span>
+  </div>
+  <p class="card-description">Tech Leads Club - Skills para agentes de IA</p>
+  <div class="card-footer">
+    <span class="card-link">agent-skills.techleads.club</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-name"><a href="https://github.com/msitarzewski/agency-agents" target="_blank" rel="noopener">Agency Agents</a></span>
+    <span class="badge badge-recommended">Recomendado</span>
+  </div>
+  <p class="card-description">Coleção crescente de personalidades de agentes de IA meticulosamente elaboradas, nascida de meses de iteração da comunidade</p>
+  <div class="card-footer">
+    <span class="card-link">github.com</span>
+    <div class="rating">
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot filled"></span>
+<span class="rating-dot"></span>
+<span class="rating-dot"></span>
+</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section" id="artigos">
+  <div class="section-header">
+    <div class="section-icon green">&#9997;</div>
+    <h2 class="section-title">Artigos</h2>
+  </div>
+  
+  <div class="pub-list">
+<a href="https://ykdojo.github.io/claude-code-tips/content/boris-claude-code-tips" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon article">&#9997;</div>
+  <div class="pub-content">
+    <span class="pub-title">10 Claude Code tips from Boris, the creator of Claude Code, summarized</span>
+    <div class="pub-source">ykdojo.github.io</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="https://code.claude.com/docs/pt/best-practices" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon article">&#9997;</div>
+  <div class="pub-content">
+    <span class="pub-title">Melhores práticas para Claude Code</span>
+    <div class="pub-source">code.claude.com</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon article">&#9997;</div>
+  <div class="pub-content">
+    <span class="pub-title">Building effective agents</span>
+    <div class="pub-source">anthropic.com</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon article">&#9997;</div>
+  <div class="pub-content">
+    <span class="pub-title">Prompt Engineering Guide</span>
+    <div class="pub-source">platform.openai.com</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="https://github.com/google-gemini/cookbook" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon article">&#9997;</div>
+  <div class="pub-content">
+    <span class="pub-title">Gemini API Cookbook</span>
+    <div class="pub-source">github.com</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="https://github.com/shanraisshan/claude-code-best-practice" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon article">&#9997;</div>
+  <div class="pub-content">
+    <span class="pub-title">claude-code-best-practice - practice makes claude perfect</span>
+    <div class="pub-source">github.com</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="https://awesomeclaude.ai/" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon article">&#9997;</div>
+  <div class="pub-content">
+    <span class="pub-title">Awesome Claude</span>
+    <div class="pub-source">awesomeclaude.ai</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="https://awesomeclaude.ai/ralph-wiggum" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon article">&#9997;</div>
+  <div class="pub-content">
+    <span class="pub-title">RALPH WIGGUM AI LOOP TECHNIQUE</span>
+    <div class="pub-source">awesomeclaude.ai</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="https://x.com/akshay_pachaar/status/2035341800739877091" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon article">&#9997;</div>
+  <div class="pub-content">
+    <span class="pub-title">Anatomy of the .claude/ folder</span>
+    <div class="pub-source">x.com</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+</div>
+</section>
+
+<section class="section" id="videos">
+  <div class="section-header">
+    <div class="section-icon purple">&#9654;</div>
+    <h2 class="section-title">Videos</h2>
+  </div>
+  
+  <div class="pub-list">
+<a href="https://youtu.be/BcLtqQ3JlMU?si=eDx2dRt-ZbAx3DGc" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon video">&#9654;</div>
+  <div class="pub-content">
+    <span class="pub-title">Como eu uso o Claude Code (Workflow Anti-Vibe Coding)</span>
+    <div class="pub-source">youtu.be</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="Code w/ Claude" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon video">&#9654;</div>
+  <div class="pub-content">
+    <span class="pub-title">Claude Code best practices \</span>
+    <div class="pub-source">Code w/ Claude</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+<a href="https://youtu.be/GQ6piqfwr5c?si=ZUYW7CDnR07FcOgB" target="_blank" rel="noopener" class="pub-item">
+  <div class="pub-icon video">&#9654;</div>
+  <div class="pub-content">
+    <span class="pub-title">Como a Stripe criou agentes de IA que escrevem mais de 1.000 solicitações de pull por semana</span>
+    <div class="pub-source">youtu.be</div>
+  </div>
+  <span class="pub-arrow">&#8594;</span>
+</a>
+</div>
+</section>
+
+<section class="section" id="utilitarios">
+  <div class="section-header">
+    <div class="section-icon yellow">&#128295;</div>
+    <h2 class="section-title">Utilidades &amp; Referências</h2>
+  </div>
+  
+  <div class="util-list">
+<div class="util-item">
+  <div class="util-icon">&#128295;</div>
+  <div class="util-content">
+    <a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" target="_blank" rel="noopener" class="util-name">Spec-Driven Development: Kiro, spec-kit, and Tessl</a>
+    <p class="util-desc">Artigo do Martin Fowler explorando ferramentas de SDD</p>
+  </div>
+</div>
+<div class="util-item">
+  <div class="util-icon">&#128295;</div>
+  <div class="util-content">
+    <a href="https://github.com/joelparkerhenderson/architecture-decision-record" target="_blank" rel="noopener" class="util-name">Architecture Decision Record (ADR)</a>
+    <p class="util-desc">Templates e guias para registrar decisões de arquitetura</p>
+  </div>
+</div>
+<div class="util-item">
+  <div class="util-icon">&#128295;</div>
+  <div class="util-content">
+    <a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener" class="util-name">CLAUDE.md Guide</a>
+    <p class="util-desc">Guia oficial da Anthropic para configurar memory files</p>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section" id="cursos">
+  <div class="section-header">
+    <div class="section-icon purple">&#127891;</div>
+    <h2 class="section-title">Cursos</h2>
+  </div>
+  
+  <div class="course-grid">
+<a href="https://anthropic.skilljar.com/claude-101" target="_blank" rel="noopener" class="course-card">
+  <div class="course-icon">&#127891;</div>
+  <div class="course-info">
+    <span class="course-name">Claude 101 - Anthropic Academy</span>
+    <span class="course-provider">Anthropic Academy</span>
+  </div>
+</a>
+<a href="https://branas.io/cursos/inteligencia-artificial-para-devs/?utm_source=campaign1" target="_blank" rel="noopener" class="course-card">
+  <div class="course-icon">&#127891;</div>
+  <div class="course-info">
+    <span class="course-name">Curso de Inteligência Artificial para Devs (Nova Versão) com Rodrigo Branas e Pedro Nauck</span>
+    <span class="course-provider">Rodrigo Branas e Pedro Nauck</span>
+  </div>
+</a>
+<a href="https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant" target="_blank" rel="noopener" class="course-card">
+  <div class="course-icon">&#127891;</div>
+  <div class="course-info">
+    <span class="course-name">Claude Code: A Highly Agentic Coding Assistant by DeepLearning.ai</span>
+    <span class="course-provider">DeepLearning.ai</span>
+  </div>
+</a>
+<a href="https://www.deeplearning.ai/short-courses/gemini-cli-code-and-create-with-an-open-source-agent/" target="_blank" rel="noopener" class="course-card">
+  <div class="course-icon">&#127891;</div>
+  <div class="course-info">
+    <span class="course-name">Gemini CLI: Code &amp; Create with an Open-Source Agent by DeepLearning.ai</span>
+    <span class="course-provider">DeepLearning.ai</span>
+  </div>
+</a>
+</div>
+</section>
+
+<section class="section" id="livros">
+  <div class="section-header">
+    <div class="section-icon orange">&#128214;</div>
+    <h2 class="section-title">Livros</h2>
+  </div>
+  
+  <div class="book-grid">
+<a href="https://www.oreilly.com/library/view/ai-assisted-programming/9781098164539/" target="_blank" rel="noopener" class="book-card">
+  <div class="book-emoji">&#128218;</div>
+  <div class="book-title">AI-Assisted Programming</div>
+  <div class="book-author">Tom Taulli · O'Reilly</div>
+</a>
+<a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/" target="_blank" rel="noopener" class="book-card">
+  <div class="book-emoji">&#128212;</div>
+  <div class="book-title">Prompt Engineering for Developers</div>
+  <div class="book-author">Andrew Ng · DeepLearning.AI</div>
+</a>
+<a href="https://www.oreilly.com/library/view/ai-engineering/9781098166298/" target="_blank" rel="noopener" class="book-card">
+  <div class="book-emoji">&#128213;</div>
+  <div class="book-title">Building LLMs for Production</div>
+  <div class="book-author">Chip Huyen · oreilly.com</div>
+</a>
+</div>
+</section>
+
+<section class="section" id="conceitos">
+  <div class="section-header">
+    <div class="section-icon yellow">&#128161;</div>
+    <h2 class="section-title">Conceitos</h2>
+  </div>
+  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Glossário de termos essenciais para desenvolvimento com IA. Clique para expandir.</p>
+  <div class="glossary">
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">Chat</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">Interface conversacional com um modelo de IA. No desenvolvimento de software, é usada para explorar soluções, gerar código, revisar PRs e debugar — funcionando como um par de programação sempre disponível.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">Prompt</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">Instrução ou entrada que você envia ao modelo. É o principal mecanismo de controle do desenvolvedor: a qualidade do output depende diretamente da clareza e especificidade do prompt. Inclui contexto, exemplos, restrições e o objetivo desejado.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">Token</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">Unidade básica de processamento de texto em LLMs — aproximadamente 4 caracteres ou ¾ de uma palavra em inglês. Impacta diretamente o custo (cobrança por token) e os limites de entrada/saída. Código é mais &quot;denso&quot; em tokens que texto comum.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">Context</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">A &quot;janela de memória&quot; do modelo — tudo que ele pode ver durante uma conversa: histórico de mensagens, arquivos carregados, resultados de ferramentas. Quanto maior o contexto, mais caro e lento. Gerenciar bem o contexto (o que incluir, o que descartar) é essencial para eficiência.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">Model</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">A rede neural treinada que processa prompts e gera respostas. Escolher o modelo certo é um trade-off entre capacidade, velocidade e custo: modelos menores (Haiku) para tarefas simples e rápidas; modelos maiores (Opus/Sonnet) para raciocínio complexo e arquitetura.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">MCP</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">Model Context Protocol — padrão aberto da Anthropic para conectar modelos de IA a ferramentas e fontes de dados externas (bancos de dados, APIs, sistemas de arquivos). Permite que o agente execute ações reais no ambiente do desenvolvedor de forma padronizada.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">Skill</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">Instrução reutilizável que orienta o modelo a seguir um processo específico — como um SOP (procedimento operacional padrão) para o AI. No Claude Code, skills definem workflows (TDD, debugging, code review) garantindo consistência entre sessões.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">Plugin</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">Extensão que adiciona capacidades a ferramentas de AI. No Claude Code, um plugin pode incluir skills, hooks, comandos e servidores MCP, empacotados e compartilháveis entre times — equivalente a um pacote npm, mas para comportamentos de AI.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">Agent</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">Sistema de IA que opera de forma autônoma, tomando decisões e executando ações em sequência para atingir um objetivo. No desenvolvimento de software, agentes podem planejar, escrever código, rodar testes e corrigir bugs com mínima intervenção humana.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">RAG</span>
+      <span class="glossary-term-tag">Retrieval-Augmented Generation</span>
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">Técnica que combina busca em bases de conhecimento externas com geração de texto por LLMs. Em vez de depender apenas do treinamento do modelo, o RAG recupera documentos relevantes e os usa como contexto, melhorando precisão e reduzindo alucinações.</div>
+  </div>
+</div>
+<div class="glossary-item">
+  <button class="glossary-toggle" onclick="toggleGlossary(this)">
+    <div class="glossary-term">
+      <span class="glossary-term-text">Tool Use / Function Calling</span>
+      
+    </div>
+    <span class="glossary-chevron">&#9660;</span>
+  </button>
+  <div class="glossary-body">
+    <div class="glossary-body-inner">Capacidade do modelo de invocar ferramentas externas (APIs, funções, comandos) durante a geração de resposta. Permite que o modelo execute ações reais — buscar dados, rodar código, acessar sistemas — em vez de apenas gerar texto.</div>
+  </div>
+</div>
+</div>
+</section>
+
+      <footer class="footer">
+        <div class="footer-license">
+          <span class="footer-license-badge">MIT</span>
+          Licen&ccedil;a open-source
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/fabianogoes/awesome-ai-software-development" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://code.claude.com/docs/pt/overview" target="_blank" rel="noopener">Claude Code</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('overlay').classList.toggle('visible');
+      const icon = document.getElementById('menu-icon');
+      icon.innerHTML = document.getElementById('sidebar').classList.contains('open') ? '&#10005;' : '&#9776;';
+    }
+    function toggleGlossary(btn) {
+      btn.closest('.glossary-item').classList.toggle('open');
+    }
+    const sections = document.querySelectorAll('.section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    function updateActiveNav() {
+      const scrollY = window.scrollY + 100;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        if (scrollY >= top && scrollY < top + height) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+          });
+        }
+      });
+    }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) toggleSidebar();
+      });
+    });
+  </script>
+</body>
+</html>
