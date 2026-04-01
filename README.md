@@ -47,6 +47,7 @@ AI coding agents
 | OpenSpec                     | Framework de especificação orientado a IA                     | https://github.com/Fission-AI/OpenSpec                      | :star::star::star:             |
 | SpecKit                      | Guia e kit para spec-driven development no GitHub             | https://github.com/github/spec-kit/blob/main/spec-driven.md | :hourglass:                    |
 | Superpowers                  | Extensões e superpoderes para agentes de IA                   | https://github.com/obra/superpowers                         | :star::star::star::star::star: |
+| Agent OS                     | Framework para construir e orquestrar agentes de IA com fluxos reproduzíveis | https://buildermethods.com/agent-os                          | :hourglass:                    |
 | QMD - Query Markup Documents | Documentos interativos com queries para IA                    | https://github.com/tobi/qmd                                 | :star::star::star:             |
 | ccusage                      | Analisador de uso e custo do Claude Code                      | https://github.com/ryoppippi/ccusage                        | :star::star::star:                   |
 
