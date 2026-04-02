@@ -104,6 +104,7 @@ Artigos, guias e referências escritas sobre desenvolvimento com IA.
 | Awesome Claude                                                         | https://awesomeclaude.ai/                                                |
 | RALPH WIGGUM AI LOOP TECHNIQUE                                         | https://awesomeclaude.ai/ralph-wiggum                                    |
 | Anatomy of the .claude/ folder                                         | https://x.com/akshay_pachaar/status/2035341800739877091                  |
+| Estrutura de Projeto Claude Code - 10 insights por Lucíola Coelho      | https://www.linkedin.com/posts/luciola-coelho-agencia-de-ia_claudemd-share-7441180082175467520-99ks/ |
 
 ### Video
 
