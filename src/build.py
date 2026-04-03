@@ -3,7 +3,7 @@
 Build script: generates index.html from README.md, CONCEPTS.md, and BOOKS.md.
 
 Usage:
-    python3 build.py
+    python3 src/build.py
     open index.html
 """
 
@@ -839,7 +839,7 @@ def build_page(sections_html, stats):
 # ══════════════════════════════════════════════════════════════
 
 def main():
-    base = Path(__file__).parent
+    base = Path(__file__).resolve().parent.parent
     readme = (base / 'README.md').read_text(encoding='utf-8')
     concepts_md = (base / 'CONCEPTS.md').read_text(encoding='utf-8')
     books_md = (base / 'BOOKS.md').read_text(encoding='utf-8')

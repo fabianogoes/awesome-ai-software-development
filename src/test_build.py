@@ -5,7 +5,7 @@ from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
-import build
+from src import build
 
 
 class BuildParsingTests(unittest.TestCase):
@@ -136,7 +136,7 @@ class BuildParsingTests(unittest.TestCase):
             )
 
             stdout = io.StringIO()
-            with patch.object(build, "__file__", str(base / "build.py")):
+            with patch.object(build, "__file__", str(base / "src" / "build.py")):
                 with redirect_stdout(stdout):
                     build.main()
 

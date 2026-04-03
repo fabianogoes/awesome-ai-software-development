@@ -1,0 +1,6 @@
+__pycache__/
+.codex/
+.claude/settings.local.json
+.worktrees/
+worktrees/
+.codex

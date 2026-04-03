@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="claude-jumping.svg" alt="Claude Code mascot jumping" width="120" height="100">
+    <img src="images/claude-jumping.svg" alt="Claude Code mascot jumping" width="120" height="100">
 </p>
 
 <h1 align="center">Awesome AI Software Development</h1>
@@ -161,5 +161,5 @@ Metodologias, templates e referências para estruturar o trabalho com IA.
 ---
 
 <p align="center">
-  <img src="MIT.png" height="50" width="150">
+  <img src="images/MIT.png" height="50" width="150">
 </p>

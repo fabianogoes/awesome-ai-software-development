@@ -6,15 +6,15 @@ All communication with maintainers and contributors must be in Brazilian Portugu
 
 ## Project Structure & Module Organization
 
-This repository is markdown-first. `README.md`, `CONCEPTS.md`, and `BOOKS.md` are the source files; [`build.py`](/home/fabiano/projects/awesome-ai-software-development/build.py) generates `index.html` for GitHub Pages. Keep images in `images/`, and treat `index.html` as generated output, not an editing target. Tests live in [`test_build.py`](/home/fabiano/projects/awesome-ai-software-development/test_build.py).
+This repository is markdown-first. `README.md`, `CONCEPTS.md`, and `BOOKS.md` are the source files; [`src/build.py`](/home/fabiano/projects/awesome-ai-software-development/src/build.py) generates `index.html` for GitHub Pages. Keep images in `images/`, and treat `index.html` as generated output, not an editing target. Tests live in [`src/test_build.py`](/home/fabiano/projects/awesome-ai-software-development/src/test_build.py).
 
 ## Build, Test, and Development Commands
 
-- `python3 build.py`: regenerate `index.html` from the markdown sources.
-- `python3 -m unittest -v`: run the parser and HTML-generation tests.
+- `python3 src/build.py`: regenerate `index.html` from the markdown sources.
+- `python3 -m unittest discover -s src -p 'test*.py' -v`: run the parser and HTML-generation tests.
 - `python3 -m http.server 3000`: preview the generated site locally at `http://localhost:3000`.
 
-Run `python3 build.py` after any content or parser change so generated output stays in sync.
+Run `python3 src/build.py` after any content or parser change so generated output stays in sync.
 
 ## Coding Style & Naming Conventions
 
@@ -22,7 +22,7 @@ Use 4-space indentation in Python and follow existing standard-library-only styl
 
 ## Testing Guidelines
 
-Add or update `unittest` cases whenever changing parsing logic, section names, or generated HTML behavior. Name tests with the `test_*` pattern and keep fixtures minimal and inline, as in [`test_build.py`](/home/fabiano/projects/awesome-ai-software-development/test_build.py). For content-only edits, rebuild locally and sanity-check the rendered `index.html`.
+Add or update `unittest` cases whenever changing parsing logic, section names, or generated HTML behavior. Name tests with the `test_*` pattern and keep fixtures minimal and inline, as in [`src/test_build.py`](/home/fabiano/projects/awesome-ai-software-development/src/test_build.py). For content-only edits, rebuild locally and sanity-check the rendered `index.html`.
 
 ## Commit & Pull Request Guidelines
 
@@ -30,4 +30,4 @@ Recent history favors short, imperative commit subjects such as `update github p
 
 ## Publishing Workflow
 
-GitHub Actions publishes Pages from `main` via `.github/workflows/pages.yml`. Changes to `README.md`, `CONCEPTS.md`, `BOOKS.md`, or `build.py` should include the regenerated `index.html` in the same branch.
+GitHub Actions publishes Pages from `main` via `.github/workflows/pages.yml`. Changes to `README.md`, `CONCEPTS.md`, `BOOKS.md`, or [`src/build.py`](/home/fabiano/projects/awesome-ai-software-development/src/build.py) should include the regenerated `index.html` in the same branch.

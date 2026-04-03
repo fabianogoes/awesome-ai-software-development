@@ -2,13 +2,13 @@
 
 ## Como funciona
 
-Este repositório usa o `README.md`, `CONCEPTS.md` e `BOOKS.md` como **fonte única de verdade**. Um script (`build.py`) lê esses arquivos e gera o `index.html` que alimenta o GitHub Pages.
+Este repositório usa o `README.md`, `CONCEPTS.md` e `BOOKS.md` como **fonte única de verdade**. Um script em `src/build.py` lê esses arquivos e gera o `index.html` que alimenta o GitHub Pages.
 
 ```
 README.md / CONCEPTS.md / BOOKS.md
         │
         ▼
-   python3 build.py
+   python3 src/build.py
         │
         ▼
     index.html (gerado automaticamente)
@@ -16,6 +16,20 @@ README.md / CONCEPTS.md / BOOKS.md
         ▼
    GitHub Pages (deploy via GitHub Actions)
 ```
+
+## Estrutura operacional
+
+Além do fluxo principal, o repositório agora tem uma camada operacional voltada a agentes e mantenedores:
+
+- `CLAUDE.md` — memória compartilhada e regras de trabalho
+- `.claude/` — comandos reutilizáveis, settings e hooks do Claude Code
+- `src/` — scripts Python do projeto, incluindo build e testes
+- `docs/architecture.md` — visão arquitetural do projeto
+- `docs/decisions/` — decisões arquiteturais registradas
+- `docs/runbooks/` — procedimentos operacionais
+- `tools/scripts/` — automações leves usadas pelos hooks
+
+Essa organização não altera a fonte de verdade do site. Ela só documenta e automatiza melhor o workflow do projeto.
 
 ## Editando conteúdo
 
@@ -78,7 +92,7 @@ Descrição...
 
 ```bash
 # Gerar o index.html
-python3 build.py
+python3 src/build.py
 
 # Abrir direto no navegador
 open index.html
@@ -90,9 +104,9 @@ python3 -m http.server 3000
 
 ## Deploy
 
-O deploy é **automático**. A cada push no `main` que altere `README.md`, `CONCEPTS.md`, `BOOKS.md` ou `build.py`, o GitHub Actions:
+O deploy é **automático**. A cada push no `main` que altere `README.md`, `CONCEPTS.md`, `BOOKS.md`, `src/build.py` ou imagens públicas relevantes, o GitHub Actions:
 
-1. Roda `python3 build.py`
+1. Roda `python3 src/build.py`
 2. Publica o resultado no GitHub Pages
 
 ### Ativando o GitHub Pages (primeira vez)

@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 src/build.py)",
+      "Bash(python3 -m unittest discover -s src -p test*.py -v)",
+      "Bash(python3 -m http.server 3000)",
+      "Bash(git status --short)",
+      "Bash(git diff --name-only)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 tools/scripts/claude_post_edit_check.py"
+          }
+        ]
+      }
+    ]
+  }
+}
