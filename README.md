@@ -20,15 +20,13 @@
 
 ---
 
-## Navegação
+## Tabela de contexto
 
-| Seção | Descrição |
-|-------|-----------|
-| [Ferramentas](#ferramentas) | CLI agents, IDEs e frameworks para desenvolvimento com IA |
-| [Publicações](#publicações) | Artigos e vídeos sobre práticas e técnicas |
-| [Utilitários](#utilitários) | Referências, templates e guias de metodologia |
-| [Cursos](#cursos) | Cursos online sobre IA para desenvolvedores |
-| [Outros](#outros) | Conceitos, livros e dicas complementares |
+- [x] [Ferramentas](#ferramentas) - CLI agents, IDEs, frameworks, MCPs, plugins e skills para desenvolvimento com IA
+- [x] [Publicações](#publicações) - Artigos e vídeos sobre práticas e técnicas
+- [x] [Utilitários](#utilitários) - Referências, templates e guias de metodologia
+- [x] [Cursos](#cursos) - Cursos online sobre IA para desenvolvedores
+- [x] [Outros](#outros) - Conceitos, livros e dicas complementares
 
 ---
 
@@ -38,7 +36,7 @@
 
 Agentes de coding no terminal — pair programming com IA direto no seu workflow.
 
-| Ferramenta  | Descrição                                                                                  | Link                                                        | ...                            |
+| Ferramenta  | Descrição                                                                                  | Link                                                        | Avaliação                      |
 | ----------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------- | ------------------------------ |
 | Claude Code | Agente de coding da Anthropic, profundo entendimento de codebases e contexto longo         | [code.claude.com](https://code.claude.com/docs/pt/overview) | :star::star::star::star::star: |
 | Codex       | Ferramenta de coding da OpenAI, geração e edição de código via CLI                         | [openai.com](https://openai.com/pt-BR/codex/)               | :star::star::star:             |
@@ -50,7 +48,7 @@ Agentes de coding no terminal — pair programming com IA direto no seu workflow
 
 IDEs com IA integrada ao fluxo de edição.
 
-| Ferramenta               | Descrição                                                                                           | Link                             | ...                |
+| Ferramenta               | Descrição                                                                                           | Link                             | Avaliação         |
 | ------------------------ | --------------------------------------------------------------------------------------------------- | ---------------------------------| ------------------ |
 | Cursor                   | IDE com IA nativa integrada ao fluxo de edição                                                      | https://cursor.com/              | :hourglass:        |
 | Antigravity              | IDE da Google com agente de coding agentico avançado                                                | https://antigravity.google/      | :star:             |
@@ -63,7 +61,7 @@ IDEs com IA integrada ao fluxo de edição.
 
 Frameworks e libs que potencializam o desenvolvimento com agentes de IA.
 
-| Ferramenta                   | Descrição                                                                        | Link                                                        | ...                            |
+| Ferramenta                   | Descrição                                                                        | Link                                                        | Avaliação                      |
 | ---------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------ |
 | GSD - GET SHIT DONE          | Framework para automação de tarefas de desenvolvimento com IA                    | https://github.com/gsd-build/get-shit-done                  | :star:                         |
 | OpenSpec                     | Framework de especificação orientado a IA                                        | https://github.com/Fission-AI/OpenSpec                      | :star::star::star:             |
@@ -73,14 +71,33 @@ Frameworks e libs que potencializam o desenvolvimento com agentes de IA.
 | QMD - Query Markup Documents | Documentos interativos com queries para IA                                       | https://github.com/tobi/qmd                                 | :star::star::star:             |
 | ccusage                      | Analisador de uso e custo do Claude Code                                         | https://github.com/ryoppippi/ccusage                        | :star::star::star:             |
 
+### MCP
+
+Servidores MCP e integrações para conectar AI coding tools a serviços externos e automações.
+
+| MCP                | Descrição                                                                                                                     | Link                                                                  | Avaliação   |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ----------- |
+| Grafana MCP Server | Servidor MCP para acessar instâncias Grafana e o ecossistema ao redor                                                        | https://github.com/grafana/mcp-grafana                                | :hourglass: |
+| Playwright MCP     | Servidor MCP de automação de navegador e testes E2E com Playwright, permitindo interações via snapshots de acessibilidade   | https://github.com/microsoft/playwright-mcp                           | :hourglass: |
+| Netlify MCP Server | Servidor MCP da Netlify para build, deploy e operações relacionadas                                                          | https://docs.netlify.com/build/build-with-ai/netlify-mcp-server/      | :hourglass: |
+
+### Plugins
+
+Plugins instaláveis que estendem AI coding tools com capacidades adicionais.
+
+| Plugin          | Descrição                                              | Link                                                                        | Avaliação                      |
+| --------------- | ------------------------------------------------------ | --------------------------------------------------------------------------- | ------------------------------ |
+| Frontend Design | Plugin para design e geração de frontend no Claude Code | https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design | :star::star::star::star::star: |
+| Codex for Claude Code | Plugin da OpenAI que integra o Codex ao Claude Code | https://github.com/openai/codex-plugin-cc                                   | :hourglass:                    |
+| Firecrawl       | Plugin para o Claude Code que permite rastrear e extrair conteúdo da web para alimentar fluxos de trabalho e agentes        | https://www.firecrawl.dev/integrations/claude-code                         | :hourglass:                    |
+
 ### Skills
 
-Skills, plugins e coleções de agentes para Claude Code e outros AI coding tools.
+Skills e coleções de agentes para Claude Code e outros AI coding tools.
 
-| Skill            | Descrição                                                                                                                     | Link                                                                        | ...                            |
+| Skill            | Descrição                                                                                                                     | Link                                                                        | Avaliação                      |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------ |
 | Interface Design | Skill para design de interface                                                                                                | https://github.com/Dammyjay93/interface-design                              | :star::star::star::star::star: |
-| Frontend Design  | Skill para design e geração de frontend                                                                                       | https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design | :star::star::star::star::star: |
 | Napkin           | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros                                          | https://github.com/blader/napkin                                            | :star:                         |
 | Agent Skills     | Tech Leads Club - Skills para agentes de IA                                                                                   | https://agent-skills.techleads.club/skills/                                 | :star::star::star::star::star: |
 | Agency Agents    | Coleção crescente de personalidades de agentes de IA meticulosamente elaboradas, nascida de meses de iteração da comunidade   | https://github.com/msitarzewski/agency-agents                               | :star::star::star:             |
@@ -139,7 +156,7 @@ Metodologias, templates e referências para estruturar o trabalho com IA.
 
 - [AI Concepts](CONCEPTS.md) — Glossário de termos essenciais (Chat, Prompt, Token, MCP, Agent...)
 - [Books](BOOKS.md) — Livros recomendados sobre IA e desenvolvimento
-- [Claude Tips](CLAUDE.md) — Dicas e configurações para Claude Code
+- [Claude Tips](CLAUDE_TIPS.md) — Dicas e referências rápidas para Claude Code
 
 ---
 

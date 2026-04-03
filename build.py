@@ -287,14 +287,14 @@ def gen_section(section_id, icon_char, icon_color, title, content_html, subtitle
 # PROCESS TOOLS TABLE
 # ══════════════════════════════════════════════════════════════
 
-def process_tools(rows, name_col='Ferramenta', desc_col='Descrição', link_col='Link', rating_col='...'):
+def process_tools(rows, name_col='Ferramenta', desc_col='Descrição', link_col='Link', rating_col='Avaliação'):
     """Process a tools table into card HTML."""
     cards = []
     for row in rows:
         name = row.get(name_col, row.get('Skill', '')).strip()
         desc = row.get(desc_col, '').strip()
         link_raw = row.get(link_col, '').strip()
-        rating_raw = row.get(rating_col, row.get('...', '')).strip()
+        rating_raw = row.get(rating_col, row.get('Avaliação', row.get('...', ''))).strip()
 
         url = extract_url(link_raw)
         # If name column has a link, use that URL
@@ -306,6 +306,17 @@ def process_tools(rows, name_col='Ferramenta', desc_col='Descrição', link_col=
         cards.append(gen_tool_card(name, desc, url, domain, stars, label, css_class))
 
     return '<div class="card-grid">\n' + '\n'.join(cards) + '\n</div>'
+
+
+def normalize_tool_rows(rows, source_col, target_col='Ferramenta'):
+    """Normalize tool-like tables so different first-column names can be rendered together."""
+    normalized = []
+    for row in rows:
+        copy = dict(row)
+        if source_col in copy and target_col not in copy:
+            copy[target_col] = copy[source_col]
+        normalized.append(copy)
+    return normalized
 
 
 def process_publications(rows, icon_type='article'):
@@ -721,6 +732,8 @@ def build_page(sections_html, stats):
       <a href="#cli" class="nav-link"><span class="nav-icon">&#9000;</span> CLI Agents</a>
       <a href="#ide" class="nav-link"><span class="nav-icon">&#9998;</span> IDEs</a>
       <a href="#frameworks" class="nav-link"><span class="nav-icon">&#9881;</span> Frameworks</a>
+      <a href="#mcp" class="nav-link"><span class="nav-icon">&#128279;</span> MCP</a>
+      <a href="#plugins" class="nav-link"><span class="nav-icon">&#129525;</span> Plugins</a>
       <a href="#skills" class="nav-link"><span class="nav-icon">&#10024;</span> Skills</a>
     </div>
     <div class="nav-group">
@@ -835,6 +848,8 @@ def main():
     cli_rows = parse_table(find_section(readme, '### CLI'))
     ide_rows = parse_table(find_section(readme, '### IDE'))
     fw_rows = parse_table(find_section(readme, '### Frameworks'))
+    mcp_rows = parse_table(find_section(readme, '### MCP'))
+    plugin_rows = parse_table(find_section(readme, '### Plugins'))
     skill_rows = parse_table(find_section(readme, '### Skills'))
     article_rows = parse_table(find_section(readme, '### Write'))
     video_rows = parse_table(find_section(readme, '### Video'))
@@ -858,9 +873,17 @@ def main():
     fw_html = process_tools(fw_rows)
     all_sections.append(gen_section('frameworks', '&#9881;', 'blue', 'Frameworks & Bibliotecas', fw_html))
 
+    # MCP
+    mcp_html = process_tools(normalize_tool_rows(mcp_rows, 'MCP'))
+    all_sections.append(gen_section('mcp', '&#128279;', 'yellow', 'MCP', mcp_html))
+
+    # Plugins
+    plugins_html = process_tools(normalize_tool_rows(plugin_rows, 'Plugin'))
+    all_sections.append(gen_section('plugins', '&#129525;', 'orange', 'Plugins', plugins_html))
+
     # Skills
-    skills_html = process_tools(skill_rows, name_col='Skill')
-    all_sections.append(gen_section('skills', '&#10024;', 'purple', 'Skills & Plugins', skills_html))
+    skills_html = process_tools(normalize_tool_rows(skill_rows, 'Skill'))
+    all_sections.append(gen_section('skills', '&#10024;', 'purple', 'Skills', skills_html))
 
     # Articles
     articles_html = process_publications(article_rows, 'article')
@@ -908,7 +931,7 @@ def main():
     ))
 
     # ── Stats ──
-    total_tools = len(cli_rows) + len(ide_rows) + len(fw_rows) + len(skill_rows)
+    total_tools = len(cli_rows) + len(ide_rows) + len(fw_rows) + len(mcp_rows) + len(plugin_rows) + len(skill_rows)
     total_concepts = len(concepts)
     total_courses = len(courses)
 
