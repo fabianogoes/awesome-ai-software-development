@@ -52,3 +52,11 @@ projeto/
 - Documente decisões importantes em `docs/decisions/`.
 - Evite estruturar o repositório de forma artificial; adapte a árvore ao tipo real de projeto.
 - Preserve arquivos gerados como artefatos, não como fonte de verdade.
+
+### Dicas de desenvolvimento
+
+- Mantenha prompts modulares e fáceis de reutilizar.
+- Mantenha a estrutura do repositório limpa e previsível.
+- Use skills e comandos para workflows recorrentes.
+- Use hooks para automatizar verificações e guardrails.
+- Documente arquitetura, decisões e runbooks operacionais.
