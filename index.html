@@ -305,6 +305,55 @@
     .util-name:hover { color: var(--accent-light); }
     .util-desc { font-size: 0.825rem; color: var(--text-secondary); line-height: 1.6; }
 
+    .doc-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+    }
+    .doc-heading {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 0.2rem;
+    }
+    .doc-subheading {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-top: 0.15rem;
+    }
+    .doc-paragraph {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+    .doc-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .doc-list li {
+      line-height: 1.65;
+    }
+    .doc-content code {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.1rem 0.35rem;
+      color: var(--text-primary);
+    }
+
     .footer {
       margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border);
       display: flex; align-items: center; justify-content: space-between;
@@ -389,6 +438,12 @@
       <span>Awesome AI<br>Software Dev</span>
     </div>
     <div class="nav-group">
+      <div class="nav-group-label">Projeto</div>
+      <a href="#purpose" class="nav-link"><span class="nav-icon">&#127919;</span> Proposito</a>
+      <a href="#shared-resources" class="nav-link"><span class="nav-icon">&#129309;</span> Recursos</a>
+      <a href="#claude-tips" class="nav-link"><span class="nav-icon">&#128161;</span> Claude Tips</a>
+    </div>
+    <div class="nav-group">
       <div class="nav-group-label">Ferramentas</div>
       <a href="#cli" class="nav-link"><span class="nav-icon">&#9000;</span> CLI Agents</a>
       <a href="#ide" class="nav-link"><span class="nav-icon">&#9998;</span> IDEs</a>
@@ -441,6 +496,77 @@
           </div>
         </div>
       </header>
+
+<section class="section" id="purpose">
+  <div class="section-header">
+    <div class="section-icon blue">&#127919;</div>
+    <h2 class="section-title">Proposito</h2>
+  </div>
+  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Escopo, principios e limites do que o projeto publica para a comunidade.</p>
+  <div class="doc-content">
+<p class="doc-paragraph">Este repositorio existe para compartilhar conhecimento aberto sobre desenvolvimento de software com IA.</p>
+<h3 class="doc-heading">O que o projeto busca fazer</h3>
+<ul class="doc-list"><li>reunir ferramentas, frameworks, conceitos e referencias uteis</li><li>publicar recursos compartilhaveis para workflows com agentes</li><li>manter uma base aberta e pratica para quem quer estudar, comparar e aplicar essas abordagens</li></ul>
+<h3 class="doc-heading">O que o projeto evita</h3>
+<ul class="doc-list"><li>acoplar a proposta a uma ferramenta especifica</li><li>transformar a pagina publica em manual interno de manutencao</li><li>expor detalhes operacionais que fazem sentido apenas para quem mantem este repositorio</li></ul>
+<h3 class="doc-heading">Principios</h3>
+<ul class="doc-list"><li>conteudo publico deve ser util para a comunidade</li><li>recursos compartilhados devem ser descritos de forma generica e agnostica</li><li>documentacao interna e operacao do projeto ficam fora do site publico por padrao</li></ul>
+</div>
+</section>
+
+<section class="section" id="shared-resources">
+  <div class="section-header">
+    <div class="section-icon green">&#129309;</div>
+    <h2 class="section-title">Recursos Compartilhados</h2>
+  </div>
+  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Skills, agents, plugins e convencoes compartilhaveis de forma agnostica.</p>
+  <div class="doc-content">
+<p class="doc-paragraph">Catalogo publico de recursos que podem ser reaproveitados em outros projetos e por diferentes agentes.</p>
+<h3 class="doc-heading">Skills</h3>
+<ul class="doc-list"><li><code>claude-project-setup</code>: skill para bootstrap de uma estrutura agnostica de agentes</li></ul>
+<h3 class="doc-heading">Agents</h3>
+<ul class="doc-list"><li><code>reviewer</code>: template inicial para revisao com foco em bugs, riscos, regressao e lacunas de teste</li></ul>
+<h3 class="doc-heading">Plugins</h3>
+<ul class="doc-list"><li>o repositorio documenta plugins e integracoes uteis no catalogo principal</li><li>recursos compartilhados devem evitar dependencia exclusiva de uma ferramenta</li></ul>
+<h3 class="doc-heading">Convencoes</h3>
+<ul class="doc-list"><li><code>.agents/</code> e a fonte de verdade para recursos compartilhados entre agentes</li><li><code>AGENTS.md</code> e o contexto global compartilhado</li><li><code>.claude/</code> e <code>CLAUDE.md</code> existem como compatibilidade</li></ul>
+<h3 class="doc-heading">Instalar a skill de setup</h3>
+<h4 class="doc-subheading">Via scripts do projeto</h4>
+<ul class="doc-list"><li>Linux/macOS: <code>bash scripts/setup-agents.sh full</code></li><li>Windows CMD: <code>scripts\setup-agents.cmd full</code></li><li>Windows PowerShell: <code>powershell -ExecutionPolicy Bypass -File .\scripts\setup-agents.ps1 -Profile full</code></li></ul>
+<h4 class="doc-subheading">O que o setup cria</h4>
+<ul class="doc-list"><li>estrutura base em <code>.agents/</code></li><li><code>AGENTS.md</code> com contexto inicial</li><li>aliases de compatibilidade para Claude</li><li>templates publicos e operacionais do perfil <code>full</code></li></ul>
+</div>
+</section>
+
+<section class="section" id="claude-tips">
+  <div class="section-header">
+    <div class="section-icon yellow">&#128161;</div>
+    <h2 class="section-title">Claude Tips</h2>
+  </div>
+  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Dicas praticas e estrutura recomendada para uso com agentes, sem expor operacao interna do projeto.</p>
+  <div class="doc-content">
+<p class="doc-paragraph">Dicas e referências rápidas para usar melhor o Claude Code.</p>
+<h3 class="doc-heading">Tips</h3>
+<ul class="doc-list"><li><a href="https://ykdojo.github.io/claude-code-tips/content/boris-claude-code-tips" target="_blank" rel="noopener">10 Claude Code tips from Boris, the creator of Claude Code, summarized</a></li><li><a href="https://code.claude.com/docs/pt/interactive-mode" target="_blank" rel="noopener">Modo interativo - Referência completa para atalhos de teclado, modos de entrada e recursos interativos em sessões do Claude Code.</a></li><li><a href="https://www.linkedin.com/posts/luciola-coelho-agencia-de-ia_claudemd-share-7441180082175467520-99ks/" target="_blank" rel="noopener">Estrutura de Projeto Claude Code - 10 insights para estruturar projetos com Claude Code</a></li><li><a href="https://docs.anthropic.com/en/docs/claude-code/cli-usage" target="_blank" rel="noopener"><code>claude --dangerously-skip-permissions</code> - opção da CLI para pular prompts de permissão; útil para automação e operação desassistida, mas deve ser usada com muito cuidado. Referências oficiais: CLI reference e Dev Containers.</a></li></ul>
+<h3 class="doc-heading">Estrutura proposta para projetos que usam CLAUDE</h3>
+<p class="doc-paragraph">Uma estrutura modular útil para projetos com Claude Code e outras ferramentas de agentes combina uma fonte de verdade agnóstica, aliases de compatibilidade, documentação operacional e automações leves.</p>
+<p class="doc-paragraph">``<code>text projeto/ ├── .agents/ │   ├── agents/ │   ├── commands/ │   ├── skills/ │   └── rules/ ├── .claude -&gt; .agents ├── .codex -&gt; .agents ├── AGENTS.md ├── CLAUDE.md -&gt; AGENTS.md ├── docs/ │   ├── architecture.md │   ├── decisions/ │   └── runbooks/ ├── src/ ├── tools/ │   ├── scripts/ │   └── prompts/ ├── images/ └── scripts/ └── templates/ </code>``</p>
+<h4 class="doc-subheading">Componentes-chave</h4>
+<ul class="doc-list"><li><code>.agents/</code>: fonte da verdade para comandos, skills, regras e outros artefatos compartilhados entre agentes.</li><li><code>AGENTS.md</code>: memória compartilhada principal do projeto, com contexto, comandos e diretrizes globais.</li><li><code>CLAUDE.md</code>: alias de compatibilidade apontando para <code>AGENTS.md</code>.</li><li><code>.claude</code>: alias de compatibilidade apontando para <code>.agents/</code>.</li><li><code>docs/architecture.md</code>: visão arquitetural do projeto.</li><li><code>docs/decisions/</code>: registro de decisões arquiteturais.</li><li><code>docs/runbooks/</code>: procedimentos operacionais para tarefas recorrentes.</li><li><code>src/</code>: código-fonte, scripts principais e testes do projeto.</li><li><code>tools/scripts/</code>: automações auxiliares e utilitários.</li><li><code>tools/prompts/</code>: prompts reutilizáveis quando fizer sentido para o workflow.</li><li><code>scripts/templates/</code>: templates versionados usados pelo bootstrap para gerar <code>AGENTS.md</code>, ADRs, onboarding e regras iniciais.</li></ul>
+<h4 class="doc-subheading">Boas práticas</h4>
+<ul class="doc-list"><li>Mantenha o <code>AGENTS.md</code> curto, focado e atualizado.</li><li>Separe contexto do projeto de automações e de documentação arquitetural.</li><li>Trate <code>.agents/</code> como a estrutura compartilhada e use aliases apenas para compatibilidade.</li><li>Use <code>commands</code>, <code>skills</code> e <code>rules</code> para tarefas repetitivas e verificações simples.</li><li>Documente decisões importantes em <code>docs/decisions/</code>.</li><li>Evolua o bootstrap editando <code>scripts/templates/</code>, em vez de espalhar conteúdo inline em vários scripts.</li><li>Evite estruturar o repositório de forma artificial; adapte a árvore ao tipo real de projeto.</li><li>Preserve arquivos gerados como artefatos, não como fonte de verdade.</li></ul>
+<h4 class="doc-subheading">Dicas de desenvolvimento</h4>
+<ul class="doc-list"><li>Mantenha prompts modulares e fáceis de reutilizar.</li><li>Mantenha a estrutura do repositório limpa e previsível.</li><li>Use skills e comandos para workflows recorrentes.</li><li>Use hooks para automatizar verificações e guardrails.</li><li>Documente arquitetura, decisões e runbooks operacionais.</li></ul>
+<h3 class="doc-heading">Uso com cuidado: <code>claude --dangerously-skip-permissions</code></h3>
+<p class="doc-paragraph">Segundo a documentação oficial do Claude Code, a flag <code>--dangerously-skip-permissions</code> inicia o Claude sem prompts de permissão. Isso pode ser útil em automações, scripts e execuções desassistidas, principalmente em ambientes isolados como devcontainers.</p>
+<p class="doc-paragraph">Exemplo:</p>
+<p class="doc-paragraph">``<code>bash claude --dangerously-skip-permissions </code>``</p>
+<p class="doc-paragraph">Alerta importante:</p>
+<ul class="doc-list"><li>Use essa opção apenas quando você entender exatamente quais comandos e acessos o Claude poderá executar sem confirmação.</li><li>A documentação oficial recomenda cautela explícita no uso dessa flag.</li><li>No guia de devcontainers, a Anthropic explica que nem mesmo um ambiente isolado impede totalmente que um projeto malicioso exfiltre dados acessíveis no ambiente, incluindo credenciais do Claude Code.</li><li>Prefira esse modo apenas em repositórios confiáveis e, de preferência, dentro de ambientes isolados e controlados.</li></ul>
+<p class="doc-paragraph">Referências oficiais:</p>
+<ul class="doc-list"><li>CLI reference: &lt;https://docs.anthropic.com/en/docs/claude-code/cli-usage&gt;</li><li>Dev Containers: &lt;https://docs.anthropic.com/pt/docs/claude-code/devcontainer&gt;</li></ul>
+</div>
+</section>
 
 <section class="section" id="cli">
   <div class="section-header">

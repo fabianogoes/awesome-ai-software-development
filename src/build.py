@@ -179,6 +179,72 @@ def html_escape(text):
             .replace('"', '&quot;'))
 
 
+def render_inline_markdown(text):
+    """Render a minimal subset of inline markdown safely."""
+    escaped = html_escape(text)
+    escaped = re.sub(
+        r'\[([^\]]+)\]\(([^)]+)\)',
+        lambda m: f'<a href="{m.group(2)}" target="_blank" rel="noopener">{m.group(1)}</a>',
+        escaped,
+    )
+    escaped = re.sub(r'`([^`]+)`', r'<code>\1</code>', escaped)
+    return escaped
+
+
+def render_markdown_document(text):
+    """Render lightweight markdown docs into HTML blocks for public sections."""
+    lines = text.splitlines()
+    html_parts = []
+    paragraph_buffer = []
+    list_buffer = []
+
+    def flush_paragraph():
+        nonlocal paragraph_buffer
+        if paragraph_buffer:
+            content = ' '.join(part.strip() for part in paragraph_buffer if part.strip())
+            html_parts.append(f'<p class="doc-paragraph">{render_inline_markdown(content)}</p>')
+            paragraph_buffer = []
+
+    def flush_list():
+        nonlocal list_buffer
+        if list_buffer:
+            items = ''.join(f'<li>{render_inline_markdown(item)}</li>' for item in list_buffer)
+            html_parts.append(f'<ul class="doc-list">{items}</ul>')
+            list_buffer = []
+
+    for raw_line in lines:
+        line = raw_line.rstrip()
+        stripped = line.strip()
+        if not stripped:
+            flush_paragraph()
+            flush_list()
+            continue
+        if stripped.startswith('# '):
+            flush_paragraph()
+            flush_list()
+            continue
+        if stripped.startswith('## '):
+            flush_paragraph()
+            flush_list()
+            html_parts.append(f'<h3 class="doc-heading">{render_inline_markdown(stripped[3:])}</h3>')
+            continue
+        if stripped.startswith('### '):
+            flush_paragraph()
+            flush_list()
+            html_parts.append(f'<h4 class="doc-subheading">{render_inline_markdown(stripped[4:])}</h4>')
+            continue
+        if stripped.startswith('- '):
+            flush_paragraph()
+            list_buffer.append(stripped[2:].strip())
+            continue
+        flush_list()
+        paragraph_buffer.append(stripped)
+
+    flush_paragraph()
+    flush_list()
+    return '<div class="doc-content">\n' + '\n'.join(html_parts) + '\n</div>'
+
+
 def gen_tool_card(name, description, url, domain, stars, label, css_class):
     """Generate HTML for a tool card."""
     dots = ''
@@ -644,6 +710,55 @@ def build_page(sections_html, stats):
     .util-name:hover {{ color: var(--accent-light); }}
     .util-desc {{ font-size: 0.825rem; color: var(--text-secondary); line-height: 1.6; }}
 
+    .doc-content {{
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+    }}
+    .doc-heading {{
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 0.2rem;
+    }}
+    .doc-subheading {{
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-top: 0.15rem;
+    }}
+    .doc-paragraph {{
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }}
+    .doc-list {{
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }}
+    .doc-list li {{
+      line-height: 1.65;
+    }}
+    .doc-content code {{
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.1rem 0.35rem;
+      color: var(--text-primary);
+    }}
+
     .footer {{
       margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border);
       display: flex; align-items: center; justify-content: space-between;
@@ -726,6 +841,12 @@ def build_page(sections_html, stats):
         </g>
       </svg>
       <span>Awesome AI<br>Software Dev</span>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Projeto</div>
+      <a href="#purpose" class="nav-link"><span class="nav-icon">&#127919;</span> Proposito</a>
+      <a href="#shared-resources" class="nav-link"><span class="nav-icon">&#129309;</span> Recursos</a>
+      <a href="#claude-tips" class="nav-link"><span class="nav-icon">&#128161;</span> Claude Tips</a>
     </div>
     <div class="nav-group">
       <div class="nav-group-label">Ferramentas</div>
@@ -843,6 +964,9 @@ def main():
     readme = (base / 'README.md').read_text(encoding='utf-8')
     concepts_md = (base / 'CONCEPTS.md').read_text(encoding='utf-8')
     books_md = (base / 'BOOKS.md').read_text(encoding='utf-8')
+    claude_tips_md = (base / 'CLAUDE_TIPS.md').read_text(encoding='utf-8')
+    purpose_md = (base / 'docs' / 'purpose.md').read_text(encoding='utf-8')
+    shared_resources_md = (base / 'docs' / 'shared-resources.md').read_text(encoding='utf-8')
 
     # ── Parse sections ──
     cli_rows = parse_table(find_section(readme, '### CLI'))
@@ -860,6 +984,28 @@ def main():
 
     # ── Generate sections ──
     all_sections = []
+
+    # Public project docs
+    purpose_html = render_markdown_document(purpose_md)
+    all_sections.append(gen_section(
+        'purpose', '&#127919;', 'blue', 'Proposito',
+        purpose_html,
+        subtitle='Escopo, principios e limites do que o projeto publica para a comunidade.'
+    ))
+
+    shared_resources_html = render_markdown_document(shared_resources_md)
+    all_sections.append(gen_section(
+        'shared-resources', '&#129309;', 'green', 'Recursos Compartilhados',
+        shared_resources_html,
+        subtitle='Skills, agents, plugins e convencoes compartilhaveis de forma agnostica.'
+    ))
+
+    claude_tips_html = render_markdown_document(claude_tips_md)
+    all_sections.append(gen_section(
+        'claude-tips', '&#128161;', 'yellow', 'Claude Tips',
+        claude_tips_html,
+        subtitle='Dicas praticas e estrutura recomendada para uso com agentes, sem expor operacao interna do projeto.'
+    ))
 
     # CLI
     cli_html = process_tools(cli_rows)

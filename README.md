@@ -18,8 +18,6 @@
   </a>
 </p>
 
----
-
 ## Tabela de contexto
 
 - [x] [Ferramentas](#ferramentas) - CLI agents, IDEs, frameworks, MCPs, plugins e skills para desenvolvimento com IA

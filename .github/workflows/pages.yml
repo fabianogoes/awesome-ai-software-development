@@ -7,9 +7,13 @@ on:
       - 'README.md'
       - 'CONCEPTS.md'
       - 'BOOKS.md'
+      - 'CLAUDE_TIPS.md'
+      - 'docs/purpose.md'
+      - 'docs/shared-resources.md'
       - 'src/build.py'
       - 'src/test_build.py'
       - 'src/test_claude_post_edit_check.py'
+      - 'src/test_pages_workflow.py'
       - 'images/claude-jumping.svg'
       - 'images/MIT.png'
   workflow_dispatch:
@@ -38,13 +42,19 @@ jobs:
       - name: Build HTML from Markdown
         run: python3 src/build.py
 
+      - name: Assemble public artifact
+        run: |
+          mkdir -p dist
+          cp index.html dist/index.html
+          cp -R images dist/images
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './dist'
 
   deploy:
     environment:

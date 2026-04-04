@@ -134,6 +134,43 @@ class BuildParsingTests(unittest.TestCase):
                 "| Livro | Autor | Link |\n| ----- | ----- | ---- |\n| Book | Author | https://example.com/book |",
                 encoding="utf-8",
             )
+            (base / "CLAUDE_TIPS.md").write_text(
+                """
+# CLAUDE_TIPS.md
+
+## Tips
+
+- [Tip 1](https://example.com/tip-1)
+
+## Estrutura proposta para projetos que usam CLAUDE
+
+- Use `.agents/` como fonte de verdade
+""".strip(),
+                encoding="utf-8",
+            )
+            (base / "docs").mkdir()
+            (base / "docs" / "purpose.md").write_text(
+                """
+# Proposito
+
+Repositorio aberto para compartilhar praticas, recursos e referencias sobre desenvolvimento de software com IA.
+""".strip(),
+                encoding="utf-8",
+            )
+            (base / "docs" / "shared-resources.md").write_text(
+                """
+# Recursos Compartilhados
+
+## Skills
+
+- `claude-project-setup`
+
+## Instalar a skill
+
+- `bash scripts/setup-agents.sh full`
+""".strip(),
+                encoding="utf-8",
+            )
 
             stdout = io.StringIO()
             with patch.object(build, "__file__", str(base / "src" / "build.py")):
@@ -144,6 +181,9 @@ class BuildParsingTests(unittest.TestCase):
 
             self.assertIn("Playwright MCP", html)
             self.assertIn("Codex for Claude Code", html)
+            self.assertIn("Repositorio aberto para compartilhar praticas", html)
+            self.assertIn("Recursos Compartilhados", html)
+            self.assertIn("Tip 1", html)
             self.assertIn("6 ferramentas", stdout.getvalue())
 
 

@@ -1,162 +1,136 @@
 ---
 name: claude-project-setup
-description: Cria a estrutura de diretórios e arquivos recomendada para projetos que usam Claude Code. Use esta skill sempre que o usuário pedir para "inicializar projeto Claude", "criar estrutura Claude", "setup Claude project", "preparar projeto para Claude Code", ou qualquer variação de montar a estrutura padrão de um projeto com Claude Code — mesmo que o usuário não mencione explicitamente a palavra "skill". Também ative quando o usuário perguntar "o que preciso criar para usar Claude Code?" ou "como estruturar meu projeto com Claude?".
+description: Use when the user asks to initialize an AI coding project, prepare a repository for Claude Code, or create a shared agent structure with compatibility across tools like Claude, Codex, and similar agents.
 ---
 
 # Claude Project Setup
 
-Esta skill cria a estrutura modular recomendada para projetos que utilizam Claude Code, conforme as boas práticas consolidadas.
+Esta skill orienta a criacao de uma estrutura agnostica para projetos com agentes de IA.
 
-## Estrutura alvo
+## Visao geral
 
-```
+A fonte da verdade deve ser:
+- `.agents/` para comandos, skills, regras e extensoes do ecossistema
+- `AGENTS.md` para contexto global compartilhado
+
+A compatibilidade deve ser exposta por alias:
+- `.claude` apontando para `.agents/`
+- `.codex` apontando para `.agents/`
+- `CLAUDE.md` apontando para `AGENTS.md`
+
+Evite manter arvores paralelas como fonte principal. A ideia e centralizar o que e comum e usar links ou aliases para compatibilidade por ferramenta.
+
+## Perfis de setup
+
+### `minimal`
+
+Use para bootstrap enxuto ou repositorios que ainda estao nascendo.
+
+Estrutura esperada:
+
+```text
 projeto/
-├── CLAUDE.md
-├── README.md
-├── docs/
-│   ├── architecture.md
-│   ├── decisions/
-│   └── runbooks/
-├── .claude/
-│   ├── settings.json
+├── .agents/
+│   ├── agents/
 │   ├── commands/
-│   └── hooks/
-├── src/
-├── tools/
-│   ├── scripts/
-│   └── prompts/
-└── images/
+│   ├── skills/
+│   └── rules/
+├── .claude -> .agents
+├── .codex -> .agents
+├── AGENTS.md
+├── CLAUDE.md -> AGENTS.md
+├── docs/
+│   └── architecture.md
+└── src/
 ```
+
+### `standard`
+
+Use para repositorios que ja querem uma base operacional mais completa.
+
+Adiciona ao perfil `minimal`:
+- `docs/decisions/`
+- `docs/runbooks/`
+- `docs/PRD.md`
+- `docs/Plan.md`
+- `docs/Napkin.md`
+- `tools/scripts/`
+- `tools/prompts/`
+- `images/`
+- `.agents/hooks/`
+- `.agents/settings/`
+
+### `full`
+
+Use quando o repositorio ja precisa nascer com convencoes para colaboracao entre pessoas e agentes.
+
+Adiciona ao perfil `standard`:
+- `docs/decisions/0001-template.md`
+- `docs/runbooks/onboarding.md`
+- `.agents/agents/reviewer.md`
+- `.agents/rules/code-review.md`
 
 ## Como executar
 
-### 1. Determinar o diretório raiz
+### 1. Determinar o diretorio raiz
 
-Se o usuário não especificou, pergunte ou assuma o diretório de trabalho atual (`pwd`).
+Se o usuario nao especificou, assuma o diretorio atual.
 
-### 2. Verificar o que já existe
+### 2. Verificar o que ja existe
 
-Antes de criar qualquer coisa, verifique quais itens já existem:
+Antes de criar qualquer coisa:
+- liste arquivos e diretorios relevantes
+- identifique o que ja existe
+- crie apenas o que estiver ausente
+- nunca sobrescreva arquivos de contexto que o projeto ja tenha preenchido
 
-```bash
-# Verificar arquivos e diretórios existentes
-ls -la
-ls -la docs/ 2>/dev/null
-ls -la .claude/ 2>/dev/null
-ls -la tools/ 2>/dev/null
-```
+### 3. Criar a estrutura
 
-Liste o que foi encontrado e o que está faltando. **Nunca sobrescreva arquivos existentes** — apenas crie os ausentes.
+Se o usuario pediu automacao direta, prefira chamar os scripts do repositorio:
+- Linux/macOS: `bash scripts/setup-agents.sh`
+- Linux/macOS perfil completo: `bash scripts/setup-agents.sh standard`
+- Linux/macOS perfil full: `bash scripts/setup-agents.sh full`
+- Windows CMD: `scripts\setup-agents.cmd`
+- Windows CMD perfil completo: `scripts\setup-agents.cmd standard`
+- Windows CMD perfil full: `scripts\setup-agents.cmd full`
+- Windows PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\setup-agents.ps1`
+- Windows PowerShell perfil completo: `powershell -ExecutionPolicy Bypass -File .\scripts\setup-agents.ps1 -Profile standard`
+- Windows PowerShell perfil full: `powershell -ExecutionPolicy Bypass -File .\scripts\setup-agents.ps1 -Profile full`
 
-### 3. Criar diretórios ausentes
+Se nao houver script disponivel, replique manualmente a mesma estrutura.
 
-Crie apenas os diretórios que não existem:
+Os conteudos padrao do bootstrap ficam versionados em `scripts/templates/`:
+- `scripts/templates/common/AGENTS.md` para o contexto inicial compartilhado
+- `scripts/templates/full/` para ADR, onboarding e templates de revisao do perfil `full`
 
-```bash
-mkdir -p docs/decisions
-mkdir -p docs/runbooks
-mkdir -p .claude/commands
-mkdir -p .claude/hooks
-mkdir -p src
-mkdir -p tools/scripts
-mkdir -p tools/prompts
-mkdir -p images
-```
+Isso permite evoluir o bootstrap ajustando os templates sem precisar manter blocos grandes inline nos scripts.
 
-O `mkdir -p` é seguro — não sobrescreve se já existir.
+### 4. Semantica dos arquivos principais
 
-### 4. Criar arquivos ausentes
+- `AGENTS.md`: contexto global compartilhado e canonico
+- `CLAUDE.md`: alias de compatibilidade, nao a fonte principal
+- `.agents/commands/`: automacoes e atalhos reutilizaveis
+- `.agents/skills/`: habilidades e instrucoes especializadas
+- `.agents/rules/`: guardrails e politicas do projeto
+- `docs/architecture.md`: visao arquitetural de alto nivel
+- `docs/decisions/`: historico de decisoes importantes
+- `docs/runbooks/`: operacao, incidentes e procedimentos recorrentes
 
-Verifique cada arquivo antes de criar. Use o conteúdo padrão abaixo.
+## Relatorio final
 
-#### `CLAUDE.md` (se não existir)
+Ao concluir, informe:
+- o que ja existia
+- o que foi criado agora
+- qual perfil foi aplicado: `minimal`, `standard` ou `full`
+- quais aliases de compatibilidade foram criados
+- quais proximos passos o usuario deve preencher manualmente
 
-```markdown
-# CLAUDE.md
+## Boas praticas
 
-Instruções e contexto para o Claude Code neste projeto.
-
-## Visão geral do projeto
-
-[Descreva o projeto aqui]
-
-## Comandos principais
-
-- `[comando de build]`: [descrição]
-- `[comando de teste]`: [descrição]
-- `[comando de execução]`: [descrição]
-
-## Regras de trabalho
-
-- [Adicione convenções de código, estilo e boas práticas]
-- [Adicione restrições importantes]
-
-## Contexto adicional
-
-[Links, decisões importantes, referências]
-```
-
-#### `docs/architecture.md` (se não existir)
-
-```markdown
-# Arquitetura
-
-Visão geral da arquitetura do projeto.
-
-## Componentes principais
-
-[Descreva os componentes]
-
-## Fluxo de dados
-
-[Descreva o fluxo]
-
-## Dependências externas
-
-[Liste dependências]
-```
-
-#### `.claude/settings.json` (se não existir)
-
-```json
-{
-  "permissions": {}
-}
-```
-
-### 5. Relatório final
-
-Ao concluir, apresente um resumo claro:
-
-```
-✓ Já existiam:
-  - CLAUDE.md
-  - src/
-
-✓ Criados agora:
-  - docs/architecture.md
-  - docs/decisions/
-  - docs/runbooks/
-  - .claude/settings.json
-  - .claude/commands/
-  - .claude/hooks/
-  - tools/scripts/
-  - tools/prompts/
-  - images/
-
-Estrutura pronta. Próximos passos sugeridos:
-1. Preencha o CLAUDE.md com contexto do seu projeto
-2. Adicione a arquitetura em docs/architecture.md
-3. Configure permissões em .claude/settings.json se necessário
-```
-
-## Boas práticas a mencionar ao usuário
-
-Após criar a estrutura, lembre o usuário das boas práticas:
-
-- **`CLAUDE.md`**: mantenha curto, focado e sempre atualizado — é a memória compartilhada do projeto com o Claude.
-- **`docs/decisions/`**: registre decisões arquiteturais importantes (ex: `docs/decisions/001-escolha-banco-de-dados.md`).
-- **`docs/runbooks/`**: documente procedimentos operacionais recorrentes.
-- **`.claude/commands/`**: crie comandos reutilizáveis para tarefas frequentes.
-- **`.claude/hooks/`**: use hooks para guardrails e validações automáticas.
-- Adapte a estrutura ao tipo real do projeto — evite criar pastas que nunca serão usadas.
+- mantenha `AGENTS.md` curto e importando documentos mais pesados
+- trate `.agents/` como estrutura compartilhada entre ferramentas
+- use `standard` quando o projeto precisar de governanca e operacao desde o inicio
+- use `full` quando quiser templates iniciais para onboarding, ADR e revisao
+- use `minimal` quando a prioridade for velocidade e baixo atrito
+- mantenha `scripts/templates/` como fonte versionada dos conteudos iniciais do bootstrap
+- adapte a estrutura ao contexto real do repositorio em vez de criar pastas sem uso

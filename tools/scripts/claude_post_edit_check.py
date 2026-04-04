@@ -8,7 +8,14 @@ import sys
 from pathlib import Path
 
 
-REBUILD_FILES = {"README.md", "CONCEPTS.md", "BOOKS.md"}
+REBUILD_FILES = {
+    "README.md",
+    "CONCEPTS.md",
+    "BOOKS.md",
+    "CLAUDE_TIPS.md",
+    "docs/purpose.md",
+    "docs/shared-resources.md",
+}
 TEST_FILES = {
     "src/build.py",
     "src/test_build.py",
