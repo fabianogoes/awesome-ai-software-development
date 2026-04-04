@@ -70,6 +70,7 @@ Frameworks e libs que potencializam o desenvolvimento com agentes de IA.
 | Agent OS                     | Framework para construir e orquestrar agentes de IA com fluxos reproduzíveis     | https://buildermethods.com/agent-os                          | :hourglass:                    |
 | QMD - Query Markup Documents | Documentos interativos com queries para IA                                       | https://github.com/tobi/qmd                                 | :star::star::star:             |
 | ccusage                      | Analisador de uso e custo do Claude Code                                         | https://github.com/ryoppippi/ccusage                        | :star::star::star:             |
+| OpenRouter                   | Gateway unificado para 300+ modelos de IA via API compatível com OpenAI          | https://openrouter.ai                                       | :star::star::star::star:       |
 
 ### MCP
 
