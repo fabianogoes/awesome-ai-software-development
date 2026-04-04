@@ -164,6 +164,18 @@ Metodologias, templates e referências para estruturar o trabalho com IA.
 
 ---
 
+## Contribuindo
+
+Este repositório é aberto à comunidade! Se você conhece uma ferramenta, conceito, vídeo ou recurso que deveria estar aqui, fique à vontade para contribuir:
+
+1. Faça um **fork** do repositório: [fabianogoes/awesome-ai-software-development](https://github.com/fabianogoes/awesome-ai-software-development)
+2. Adicione o conteúdo na seção apropriada do `README.md`
+3. Abra um **Pull Request** com uma breve descrição do que foi adicionado
+
+Toda contribuição é bem-vinda, seja uma nova ferramenta, um link útil, uma correção ou uma sugestão de melhoria.
+
+---
+
 <p align="center">
   <img src="images/MIT.png" height="50" width="150">
 </p>
