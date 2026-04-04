@@ -100,6 +100,7 @@ Skills e coleções de agentes para Claude Code e outros AI coding tools.
 | Interface Design | Skill para design de interface                                                                                                | https://github.com/Dammyjay93/interface-design                              | :star::star::star::star::star: |
 | Napkin           | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros                                          | https://github.com/blader/napkin                                            | :star:                         |
 | Agent Skills     | Tech Leads Club - Skills para agentes de IA                                                                                   | https://agent-skills.techleads.club/skills/                                 | :star::star::star::star::star: |
+| TLC Spec Driven  | Tech Leads Club - Skill para desenvolvimento orientado a especificações com agentes de IA                                     | https://agent-skills.techleads.club/skills/tlc-spec-driven/                 | :hourglass:                    |
 | Agency Agents    | Coleção crescente de personalidades de agentes de IA meticulosamente elaboradas, nascida de meses de iteração da comunidade   | https://github.com/msitarzewski/agency-agents                               | :star::star::star:             |
 
 ---
