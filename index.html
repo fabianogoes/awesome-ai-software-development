@@ -353,6 +353,21 @@
       padding: 0.1rem 0.35rem;
       color: var(--text-primary);
     }
+    .doc-code-block {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1rem;
+      overflow-x: auto;
+    }
+    .doc-code-block code {
+      background: transparent;
+      border: none;
+      padding: 0;
+      display: block;
+      line-height: 1.7;
+      white-space: pre;
+    }
 
     .footer {
       margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border);
@@ -529,7 +544,7 @@
 <h3 class="doc-heading">Plugins</h3>
 <ul class="doc-list"><li>o repositorio documenta plugins e integracoes uteis no catalogo principal</li><li>recursos compartilhados devem evitar dependencia exclusiva de uma ferramenta</li></ul>
 <h3 class="doc-heading">Convencoes</h3>
-<ul class="doc-list"><li><code>.agents/</code> e a fonte de verdade para recursos compartilhados entre agentes</li><li><code>AGENTS.md</code> e o contexto global compartilhado</li><li><code>.claude/</code> e <code>CLAUDE.md</code> existem como compatibilidade</li></ul>
+<ul class="doc-list"><li><code>.agents/</code> e a fonte de verdade para recursos compartilhados entre agentes</li><li><code>AGENTS.md</code> e o contexto global compartilhado</li><li><code>.claude/</code> e <code>CLAUDE.md</code> existem como compatibilidade</li><li><code>.agents/commands/</code> e a origem canonica dos commands</li><li><code>.claude/commands/</code> permanece como wrapper minimo de compatibilidade</li></ul>
 <h3 class="doc-heading">Instalar a skill de setup</h3>
 <h4 class="doc-subheading">Via scripts do projeto</h4>
 <ul class="doc-list"><li>Linux/macOS: <code>bash scripts/setup-agents.sh full</code></li><li>Windows CMD: <code>scripts\setup-agents.cmd full</code></li><li>Windows PowerShell: <code>powershell -ExecutionPolicy Bypass -File .\scripts\setup-agents.ps1 -Profile full</code></li></ul>
@@ -549,18 +564,43 @@
 <h3 class="doc-heading">Tips</h3>
 <ul class="doc-list"><li><a href="https://ykdojo.github.io/claude-code-tips/content/boris-claude-code-tips" target="_blank" rel="noopener">10 Claude Code tips from Boris, the creator of Claude Code, summarized</a></li><li><a href="https://code.claude.com/docs/pt/interactive-mode" target="_blank" rel="noopener">Modo interativo - Referência completa para atalhos de teclado, modos de entrada e recursos interativos em sessões do Claude Code.</a></li><li><a href="https://www.linkedin.com/posts/luciola-coelho-agencia-de-ia_claudemd-share-7441180082175467520-99ks/" target="_blank" rel="noopener">Estrutura de Projeto Claude Code - 10 insights para estruturar projetos com Claude Code</a></li><li><a href="https://docs.anthropic.com/en/docs/claude-code/cli-usage" target="_blank" rel="noopener"><code>claude --dangerously-skip-permissions</code> - opção da CLI para pular prompts de permissão; útil para automação e operação desassistida, mas deve ser usada com muito cuidado. Referências oficiais: CLI reference e Dev Containers.</a></li></ul>
 <h3 class="doc-heading">Estrutura proposta para projetos que usam CLAUDE</h3>
-<p class="doc-paragraph">Uma estrutura modular útil para projetos com Claude Code e outras ferramentas de agentes combina uma fonte de verdade agnóstica, aliases de compatibilidade, documentação operacional e automações leves.</p>
-<p class="doc-paragraph">``<code>text projeto/ ├── .agents/ │   ├── agents/ │   ├── commands/ │   ├── skills/ │   └── rules/ ├── .claude -&gt; .agents ├── .codex -&gt; .agents ├── AGENTS.md ├── CLAUDE.md -&gt; AGENTS.md ├── docs/ │   ├── architecture.md │   ├── decisions/ │   └── runbooks/ ├── src/ ├── tools/ │   ├── scripts/ │   └── prompts/ ├── images/ └── scripts/ └── templates/ </code>``</p>
+<p class="doc-paragraph">Uma estrutura modular útil para projetos com Claude Code e outras ferramentas de agentes combina uma fonte de verdade agnóstica, aliases de compatibilidade, documentação pública e automações operacionais bem separadas.</p>
+<pre class="doc-code-block"><code class="language-text">projeto/
+├── .agents/
+│   ├── agents/
+│   ├── commands/
+│   ├── skills/
+│   └── rules/
+├── .claude -&gt; .agents
+├── .codex -&gt; .agents
+├── AGENTS.md
+├── CLAUDE.md -&gt; AGENTS.md
+├── docs/
+│   ├── purpose.md
+│   ├── shared-resources.md
+│   ├── architecture.md
+│   ├── decisions/
+│   └── runbooks/
+├── src/
+├── scripts/
+│   ├── setup-agents.sh
+│   ├── setup-agents.ps1
+│   ├── setup-agents.cmd
+│   └── templates/
+├── tools/
+│   ├── scripts/
+│   └── prompts/
+└── images/</code></pre>
 <h4 class="doc-subheading">Componentes-chave</h4>
-<ul class="doc-list"><li><code>.agents/</code>: fonte da verdade para comandos, skills, regras e outros artefatos compartilhados entre agentes.</li><li><code>AGENTS.md</code>: memória compartilhada principal do projeto, com contexto, comandos e diretrizes globais.</li><li><code>CLAUDE.md</code>: alias de compatibilidade apontando para <code>AGENTS.md</code>.</li><li><code>.claude</code>: alias de compatibilidade apontando para <code>.agents/</code>.</li><li><code>docs/architecture.md</code>: visão arquitetural do projeto.</li><li><code>docs/decisions/</code>: registro de decisões arquiteturais.</li><li><code>docs/runbooks/</code>: procedimentos operacionais para tarefas recorrentes.</li><li><code>src/</code>: código-fonte, scripts principais e testes do projeto.</li><li><code>tools/scripts/</code>: automações auxiliares e utilitários.</li><li><code>tools/prompts/</code>: prompts reutilizáveis quando fizer sentido para o workflow.</li><li><code>scripts/templates/</code>: templates versionados usados pelo bootstrap para gerar <code>AGENTS.md</code>, ADRs, onboarding e regras iniciais.</li></ul>
+<ul class="doc-list"><li><code>.agents/</code>: fonte da verdade para comandos, skills, regras e outros artefatos compartilhados entre agentes.</li><li><code>.agents/commands/</code>: origem canônica dos commands do projeto.</li><li><code>AGENTS.md</code>: memória compartilhada principal do projeto, com contexto, comandos e diretrizes globais.</li><li><code>CLAUDE.md</code>: alias de compatibilidade apontando para <code>AGENTS.md</code>.</li><li><code>.claude</code>: alias de compatibilidade apontando para <code>.agents/</code>.</li><li><code>docs/purpose.md</code>: propósito, escopo e princípios públicos do repositório.</li><li><code>docs/shared-resources.md</code>: catálogo público de skills, agents, plugins e convenções compartilháveis.</li><li><code>docs/architecture.md</code>: visão arquitetural do projeto.</li><li><code>docs/decisions/</code>: registro de decisões arquiteturais.</li><li><code>docs/runbooks/</code>: procedimentos operacionais para tarefas recorrentes.</li><li><code>scripts/</code>: bootstrap e templates versionados da estrutura agnóstica.</li><li><code>src/</code>: código-fonte, scripts principais e testes do projeto.</li><li><code>tools/scripts/</code>: automações operacionais e utilitários internos do projeto.</li><li><code>tools/prompts/</code>: prompts reutilizáveis quando fizer sentido para o workflow.</li><li><code>scripts/templates/</code>: templates versionados usados pelo bootstrap para gerar <code>AGENTS.md</code>, ADRs, onboarding e regras iniciais.</li></ul>
 <h4 class="doc-subheading">Boas práticas</h4>
-<ul class="doc-list"><li>Mantenha o <code>AGENTS.md</code> curto, focado e atualizado.</li><li>Separe contexto do projeto de automações e de documentação arquitetural.</li><li>Trate <code>.agents/</code> como a estrutura compartilhada e use aliases apenas para compatibilidade.</li><li>Use <code>commands</code>, <code>skills</code> e <code>rules</code> para tarefas repetitivas e verificações simples.</li><li>Documente decisões importantes em <code>docs/decisions/</code>.</li><li>Evolua o bootstrap editando <code>scripts/templates/</code>, em vez de espalhar conteúdo inline em vários scripts.</li><li>Evite estruturar o repositório de forma artificial; adapte a árvore ao tipo real de projeto.</li><li>Preserve arquivos gerados como artefatos, não como fonte de verdade.</li></ul>
+<ul class="doc-list"><li>Mantenha o <code>AGENTS.md</code> curto, focado e atualizado.</li><li>Separe contexto do projeto, documentação pública e automações operacionais.</li><li>Trate <code>.agents/</code> como a estrutura compartilhada e use aliases apenas para compatibilidade.</li><li>Faça novos commands nascerem em <code>.agents/commands/</code>; <code>.claude/commands/</code> deve existir apenas como compatibilidade.</li><li>Use <code>commands</code>, <code>skills</code> e <code>rules</code> para tarefas repetitivas, guardrails e verificações simples.</li><li>Documente decisões importantes em <code>docs/decisions/</code>.</li><li>Mantenha <code>README.md</code> genérico e público; instruções internas devem ficar fora da página principal.</li><li>Evolua o bootstrap editando <code>scripts/templates/</code>, em vez de espalhar conteúdo inline em vários scripts.</li><li>Evite estruturar o repositório de forma artificial; adapte a árvore ao tipo real de projeto.</li><li>Preserve arquivos gerados como artefatos, não como fonte de verdade.</li></ul>
 <h4 class="doc-subheading">Dicas de desenvolvimento</h4>
 <ul class="doc-list"><li>Mantenha prompts modulares e fáceis de reutilizar.</li><li>Mantenha a estrutura do repositório limpa e previsível.</li><li>Use skills e comandos para workflows recorrentes.</li><li>Use hooks para automatizar verificações e guardrails.</li><li>Documente arquitetura, decisões e runbooks operacionais.</li></ul>
 <h3 class="doc-heading">Uso com cuidado: <code>claude --dangerously-skip-permissions</code></h3>
 <p class="doc-paragraph">Segundo a documentação oficial do Claude Code, a flag <code>--dangerously-skip-permissions</code> inicia o Claude sem prompts de permissão. Isso pode ser útil em automações, scripts e execuções desassistidas, principalmente em ambientes isolados como devcontainers.</p>
 <p class="doc-paragraph">Exemplo:</p>
-<p class="doc-paragraph">``<code>bash claude --dangerously-skip-permissions </code>``</p>
+<pre class="doc-code-block"><code class="language-bash">claude --dangerously-skip-permissions</code></pre>
 <p class="doc-paragraph">Alerta importante:</p>
 <ul class="doc-list"><li>Use essa opção apenas quando você entender exatamente quais comandos e acessos o Claude poderá executar sem confirmação.</li><li>A documentação oficial recomenda cautela explícita no uso dessa flag.</li><li>No guia de devcontainers, a Anthropic explica que nem mesmo um ambiente isolado impede totalmente que um projeto malicioso exfiltre dados acessíveis no ambiente, incluindo credenciais do Claude Code.</li><li>Prefira esse modo apenas em repositórios confiáveis e, de preferência, dentro de ambientes isolados e controlados.</li></ul>
 <p class="doc-paragraph">Referências oficiais:</p>

@@ -11,7 +11,7 @@ Dicas e referências rápidas para usar melhor o Claude Code.
 
 ## Estrutura proposta para projetos que usam CLAUDE
 
-Uma estrutura modular útil para projetos com Claude Code e outras ferramentas de agentes combina uma fonte de verdade agnóstica, aliases de compatibilidade, documentação operacional e automações leves.
+Uma estrutura modular útil para projetos com Claude Code e outras ferramentas de agentes combina uma fonte de verdade agnóstica, aliases de compatibilidade, documentação pública e automações operacionais bem separadas.
 
 ```text
 projeto/
@@ -25,39 +25,50 @@ projeto/
 ├── AGENTS.md
 ├── CLAUDE.md -> AGENTS.md
 ├── docs/
+│   ├── purpose.md
+│   ├── shared-resources.md
 │   ├── architecture.md
 │   ├── decisions/
 │   └── runbooks/
 ├── src/
+├── scripts/
+│   ├── setup-agents.sh
+│   ├── setup-agents.ps1
+│   ├── setup-agents.cmd
+│   └── templates/
 ├── tools/
 │   ├── scripts/
 │   └── prompts/
-├── images/
-└── scripts/
-    └── templates/
+└── images/
 ```
 
 ### Componentes-chave
 
 - `.agents/`: fonte da verdade para comandos, skills, regras e outros artefatos compartilhados entre agentes.
+- `.agents/commands/`: origem canônica dos commands do projeto.
 - `AGENTS.md`: memória compartilhada principal do projeto, com contexto, comandos e diretrizes globais.
 - `CLAUDE.md`: alias de compatibilidade apontando para `AGENTS.md`.
 - `.claude`: alias de compatibilidade apontando para `.agents/`.
+- `docs/purpose.md`: propósito, escopo e princípios públicos do repositório.
+- `docs/shared-resources.md`: catálogo público de skills, agents, plugins e convenções compartilháveis.
 - `docs/architecture.md`: visão arquitetural do projeto.
 - `docs/decisions/`: registro de decisões arquiteturais.
 - `docs/runbooks/`: procedimentos operacionais para tarefas recorrentes.
+- `scripts/`: bootstrap e templates versionados da estrutura agnóstica.
 - `src/`: código-fonte, scripts principais e testes do projeto.
-- `tools/scripts/`: automações auxiliares e utilitários.
+- `tools/scripts/`: automações operacionais e utilitários internos do projeto.
 - `tools/prompts/`: prompts reutilizáveis quando fizer sentido para o workflow.
 - `scripts/templates/`: templates versionados usados pelo bootstrap para gerar `AGENTS.md`, ADRs, onboarding e regras iniciais.
 
 ### Boas práticas
 
 - Mantenha o `AGENTS.md` curto, focado e atualizado.
-- Separe contexto do projeto de automações e de documentação arquitetural.
+- Separe contexto do projeto, documentação pública e automações operacionais.
 - Trate `.agents/` como a estrutura compartilhada e use aliases apenas para compatibilidade.
-- Use `commands`, `skills` e `rules` para tarefas repetitivas e verificações simples.
+- Faça novos commands nascerem em `.agents/commands/`; `.claude/commands/` deve existir apenas como compatibilidade.
+- Use `commands`, `skills` e `rules` para tarefas repetitivas, guardrails e verificações simples.
 - Documente decisões importantes em `docs/decisions/`.
+- Mantenha `README.md` genérico e público; instruções internas devem ficar fora da página principal.
 - Evolua o bootstrap editando `scripts/templates/`, em vez de espalhar conteúdo inline em vários scripts.
 - Evite estruturar o repositório de forma artificial; adapte a árvore ao tipo real de projeto.
 - Preserve arquivos gerados como artefatos, não como fonte de verdade.

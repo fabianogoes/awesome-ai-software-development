@@ -62,6 +62,21 @@ class BuildParsingTests(unittest.TestCase):
         self.assertEqual(1, len(plugin_rows))
         self.assertEqual("Codex for Claude Code", plugin_rows[0]["Plugin"])
 
+    def test_render_markdown_document_supports_fenced_code_blocks(self):
+        markdown = """
+## Exemplo
+
+```bash
+claude --dangerously-skip-permissions
+```
+""".strip()
+
+        html = build.render_markdown_document(markdown)
+
+        self.assertIn('<pre class="doc-code-block"><code class="language-bash">', html)
+        self.assertIn("claude --dangerously-skip-permissions", html)
+        self.assertIn("</code></pre>", html)
+
     def test_main_includes_plugins_in_generated_output_and_stats(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             base = Path(tmpdir)

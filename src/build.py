@@ -197,6 +197,8 @@ def render_markdown_document(text):
     html_parts = []
     paragraph_buffer = []
     list_buffer = []
+    code_block_lines = []
+    code_block_language = None
 
     def flush_paragraph():
         nonlocal paragraph_buffer
@@ -212,9 +214,31 @@ def render_markdown_document(text):
             html_parts.append(f'<ul class="doc-list">{items}</ul>')
             list_buffer = []
 
+    def flush_code_block():
+        nonlocal code_block_lines, code_block_language
+        if code_block_lines:
+            language_class = ''
+            if code_block_language:
+                language_class = f' class="language-{html_escape(code_block_language)}"'
+            code_html = html_escape('\n'.join(code_block_lines))
+            html_parts.append(f'<pre class="doc-code-block"><code{language_class}>{code_html}</code></pre>')
+            code_block_lines = []
+            code_block_language = None
+
     for raw_line in lines:
         line = raw_line.rstrip()
         stripped = line.strip()
+        if stripped.startswith("```"):
+            flush_paragraph()
+            flush_list()
+            if code_block_lines:
+                flush_code_block()
+            else:
+                code_block_language = stripped[3:].strip() or None
+            continue
+        if code_block_language is not None or code_block_lines:
+            code_block_lines.append(raw_line.rstrip())
+            continue
         if not stripped:
             flush_paragraph()
             flush_list()
@@ -242,6 +266,7 @@ def render_markdown_document(text):
 
     flush_paragraph()
     flush_list()
+    flush_code_block()
     return '<div class="doc-content">\n' + '\n'.join(html_parts) + '\n</div>'
 
 
@@ -757,6 +782,21 @@ def build_page(sections_html, stats):
       border-radius: 6px;
       padding: 0.1rem 0.35rem;
       color: var(--text-primary);
+    }}
+    .doc-code-block {{
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1rem;
+      overflow-x: auto;
+    }}
+    .doc-code-block code {{
+      background: transparent;
+      border: none;
+      padding: 0;
+      display: block;
+      line-height: 1.7;
+      white-space: pre;
     }}
 
     .footer {{

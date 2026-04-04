@@ -6,7 +6,7 @@ All communication with maintainers and contributors must be in Brazilian Portugu
 
 ## Project Structure & Module Organization
 
-This repository is markdown-first. `README.md`, `CONCEPTS.md`, and `BOOKS.md` are the source files; [`src/build.py`](/home/fabiano/projects/awesome-ai-software-development/src/build.py) generates `index.html` for GitHub Pages. Keep images in `images/`, and treat `index.html` as generated output, not an editing target. Tests live in [`src/test_build.py`](/home/fabiano/projects/awesome-ai-software-development/src/test_build.py).
+This repository is markdown-first. `README.md`, `CONCEPTS.md`, `BOOKS.md`, `CLAUDE_TIPS.md`, [`docs/purpose.md`](/home/fabiano/projects/awesome-ai-software-development/docs/purpose.md), and [`docs/shared-resources.md`](/home/fabiano/projects/awesome-ai-software-development/docs/shared-resources.md) are the public content sources; [`src/build.py`](/home/fabiano/projects/awesome-ai-software-development/src/build.py) generates `index.html` for GitHub Pages. Keep images in `images/`, and treat `index.html` as generated output, not an editing target. Tests live in [`src/test_build.py`](/home/fabiano/projects/awesome-ai-software-development/src/test_build.py).
 
 ## Build, Test, and Development Commands
 
@@ -30,4 +30,4 @@ Recent history favors short, imperative commit subjects such as `update github p
 
 ## Publishing Workflow
 
-GitHub Actions publishes Pages from `main` via `.github/workflows/pages.yml`. Changes to `README.md`, `CONCEPTS.md`, `BOOKS.md`, or [`src/build.py`](/home/fabiano/projects/awesome-ai-software-development/src/build.py) should include the regenerated `index.html` in the same branch.
+GitHub Actions publishes Pages from `main` via `.github/workflows/pages.yml`. Changes to public content sources such as `README.md`, `CONCEPTS.md`, `BOOKS.md`, `CLAUDE_TIPS.md`, [`docs/purpose.md`](/home/fabiano/projects/awesome-ai-software-development/docs/purpose.md), [`docs/shared-resources.md`](/home/fabiano/projects/awesome-ai-software-development/docs/shared-resources.md), or [`src/build.py`](/home/fabiano/projects/awesome-ai-software-development/src/build.py) should include the regenerated `index.html` in the same branch.
