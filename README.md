@@ -133,6 +133,7 @@ Videos sobre workflows, boas práticas e casos reais de uso.
 | Como eu uso o Claude Code (Workflow Anti-Vibe Coding)                                     | https://youtu.be/BcLtqQ3JlMU?si=eDx2dRt-ZbAx3DGc  |
 | Claude Code best practices \| Code w/ Claude                                              | https://www.youtube.com/watch?v=T-fJQHxWTAs        |
 | Como a Stripe criou agentes de IA que escrevem mais de 1.000 solicitações de pull por semana | https://youtu.be/GQ6piqfwr5c?si=ZUYW7CDnR07FcOgB |
+| Google Antigravity SEM LIMITES: como usar IA grátis sem travar                               | https://youtu.be/mx_K2qAFz5w?si=VuXAId0B4e9yGhUS  |
 
 ---
 
