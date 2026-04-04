@@ -2,12 +2,31 @@
 
 Dicas e referências rápidas para usar melhor o Claude Code.
 
-## Tips
+## Referencias
+
+Links para leitura rapida, inspiracao e consulta oficial sobre Claude Code.
 
 - [10 Claude Code tips from Boris, the creator of Claude Code, summarized](https://ykdojo.github.io/claude-code-tips/content/boris-claude-code-tips)
-- [Modo interativo - Referência completa para atalhos de teclado, modos de entrada e recursos interativos em sessões do Claude Code.](https://code.claude.com/docs/pt/interactive-mode)
+- [Modo interativo - Referencia completa para atalhos de teclado, modos de entrada e recursos interativos em sessoes do Claude Code.](https://code.claude.com/docs/pt/interactive-mode)
 - [Estrutura de Projeto Claude Code - 10 insights para estruturar projetos com Claude Code](https://www.linkedin.com/posts/luciola-coelho-agencia-de-ia_claudemd-share-7441180082175467520-99ks/)
-- [`claude --dangerously-skip-permissions` - opção da CLI para pular prompts de permissão; útil para automação e operação desassistida, mas deve ser usada com muito cuidado. Referências oficiais: CLI reference e Dev Containers.](https://docs.anthropic.com/en/docs/claude-code/cli-usage)
+- [CLI usage - documentacao oficial da Anthropic para uso da CLI do Claude Code.](https://docs.anthropic.com/en/docs/claude-code/cli-usage)
+- [Dev Containers - guia oficial para uso do Claude Code em ambientes isolados.](https://docs.anthropic.com/pt/docs/claude-code/devcontainer)
+
+## Comandos uteis
+
+Comandos e flags que valem conhecer antes de automatizar ou operar o Claude Code no dia a dia.
+
+- `claude --dangerously-skip-permissions`: pula prompts de permissao. E util para automacao e execucao desassistida, mas so deve ser usado em repositorios confiaveis e ambientes bem controlados.
+
+## Fluxos praticos
+
+Dicas para transformar o Claude Code em parte do workflow do projeto, e nao apenas em uma ferramenta ocasional.
+
+- Separe claramente o que e contexto compartilhado do projeto (`AGENTS.md`) do que e compatibilidade com uma ferramenta especifica (`CLAUDE.md`, `.claude/`).
+- Use `.agents/commands/` como origem dos comandos do projeto e trate `.claude/commands/` apenas como compatibilidade.
+- Mantenha documentacao publica, regras internas e automacoes operacionais em lugares diferentes para evitar acoplamento desnecessario.
+- Quando o projeto tiver GitHub Pages, publique apenas conteudo curado e publico; nao exponha estruturas internas por acidente.
+- Prefira evoluir templates e scripts de bootstrap de forma centralizada, para manter o setup reproduzivel entre ferramentas e sistemas operacionais.
 
 ## Estrutura proposta para projetos que usam CLAUDE
 
