@@ -374,6 +374,83 @@ def gen_section(section_id, icon_char, icon_color, title, content_html, subtitle
 </section>'''
 
 
+def gen_context_nav():
+    """Generate a quick context navigation block for the top of the page."""
+    groups = [
+        (
+            'Projeto',
+            '&#127919;',
+            'Comece pelo posicionamento do repositório e pelos recursos compartilháveis.',
+            [
+                ('Proposito', '#purpose'),
+                ('Recursos', '#shared-resources'),
+                ('Claude Tips', '#claude-tips'),
+            ],
+        ),
+        (
+            'Ferramentas',
+            '&#9881;',
+            'Navegue pelas categorias principais de AI coding tools e integrações.',
+            [
+                ('CLI Agents', '#cli'),
+                ('IDEs', '#ide'),
+                ('Frameworks', '#frameworks'),
+                ('MCP', '#mcp'),
+            ],
+        ),
+        (
+            'Aprender',
+            '&#127891;',
+            'Acesse material para estudar práticas, workflows e referências recomendadas.',
+            [
+                ('Artigos', '#artigos'),
+                ('Videos', '#videos'),
+                ('Cursos', '#cursos'),
+                ('Livros', '#livros'),
+            ],
+        ),
+        (
+            'Referencia',
+            '&#128214;',
+            'Vá direto para utilidades, conceitos e materiais de apoio contínuo.',
+            [
+                ('Utilidades', '#utilitarios'),
+                ('Conceitos', '#conceitos'),
+            ],
+        ),
+    ]
+
+    cards = []
+    for title, icon, description, links in groups:
+        links_html = ''.join(
+            f'<a href="{href}" class="context-link">{html_escape(label)}</a>'
+            for label, href in links
+        )
+        cards.append(
+            f'''<article class="context-card">
+  <div class="context-card-header">
+    <span class="context-card-icon">{icon}</span>
+    <h2>{html_escape(title)}</h2>
+  </div>
+  <p class="context-card-description">{html_escape(description)}</p>
+  <div class="context-link-list">
+    {links_html}
+  </div>
+</article>'''
+        )
+
+    return f'''<section class="context-nav" aria-labelledby="context-nav-title">
+  <div class="context-nav-header">
+    <span class="context-nav-eyebrow">Navegacao rapida</span>
+    <h2 id="context-nav-title">Tabela de contexto</h2>
+    <p>Uma entrada rapida para explorar o projeto sem depender apenas do menu lateral.</p>
+  </div>
+  <div class="context-grid">
+    {' '.join(cards)}
+  </div>
+</section>'''
+
+
 # ══════════════════════════════════════════════════════════════
 # PROCESS TOOLS TABLE
 # ══════════════════════════════════════════════════════════════
@@ -572,6 +649,146 @@ def build_page(sections_html, stats):
     .hero-stat {{ display: flex; flex-direction: column; }}
     .hero-stat-value {{ font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--text-primary); }}
     .hero-stat-label {{ font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }}
+
+    .context-nav {{
+      margin: 0 0 3.5rem;
+      padding: 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at top left, rgba(224, 124, 76, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(124, 179, 242, 0.12), transparent 28%),
+        linear-gradient(180deg, rgba(41, 37, 36, 0.96), rgba(20, 18, 17, 0.98));
+      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.28);
+      position: relative;
+      overflow: hidden;
+    }}
+    .context-nav::before {{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(224, 124, 76, 0.06), transparent 35%),
+        linear-gradient(315deg, rgba(242, 208, 124, 0.04), transparent 40%);
+      pointer-events: none;
+    }}
+    .context-nav-header {{
+      margin-bottom: 1.35rem;
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+    }}
+    .context-nav-eyebrow {{
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 0.7rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(242, 208, 124, 0.12);
+      border: 1px solid rgba(242, 208, 124, 0.22);
+      color: var(--yellow);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }}
+    .context-nav-header h2 {{
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.45rem;
+    }}
+    .context-nav-header p {{
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }}
+    .context-grid {{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }}
+    .context-card {{
+      padding: 1.05rem 1.05rem 1.15rem;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(28, 25, 23, 0.84), rgba(18, 16, 15, 0.88));
+      border: 1px solid rgba(61, 56, 53, 0.95);
+      transition: transform var(--transition), border-color var(--transition), background var(--transition), box-shadow var(--transition);
+      box-shadow: inset 0 1px 0 rgba(250, 250, 249, 0.03);
+    }}
+    .context-card:hover {{
+      transform: translateY(-3px);
+      border-color: rgba(224, 124, 76, 0.38);
+      background: linear-gradient(180deg, rgba(38, 33, 30, 0.92), rgba(22, 19, 18, 0.95));
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+    }}
+    .context-card-header {{
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.5rem;
+    }}
+    .context-card-icon {{
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(224, 124, 76, 0.2), rgba(242, 208, 124, 0.16));
+      color: var(--accent-light);
+      font-size: 1rem;
+      flex-shrink: 0;
+      border: 1px solid rgba(224, 124, 76, 0.12);
+    }}
+    .context-card-header h2 {{
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }}
+    .context-card-description {{
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 0.85rem;
+    }}
+    .context-link-list {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }}
+    .context-link {{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.38rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(224, 124, 76, 0.08);
+      border: 1px solid rgba(224, 124, 76, 0.18);
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      backdrop-filter: blur(6px);
+    }}
+    .context-link::after {{
+      content: '↗';
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      transition: color var(--transition), transform var(--transition);
+    }}
+    .context-link:hover {{
+      color: var(--bg-deep);
+      background: var(--accent);
+      border-color: var(--accent);
+    }}
+    .context-link:hover::after {{
+      color: var(--bg-deep);
+      transform: translateX(1px);
+    }}
 
     .section {{ margin-bottom: 4rem; animation: fadeUp 0.5s ease both; }}
     .section-header {{
@@ -833,6 +1050,7 @@ def build_page(sections_html, stats):
       .main {{ margin-left: 0; }}
       .content {{ padding: 4.5rem 1.5rem 4rem; }}
       .card-grid {{ grid-template-columns: 1fr; }}
+      .context-grid {{ grid-template-columns: 1fr; }}
       .hero-stats {{ gap: 1.5rem; }}
       .footer {{ flex-direction: column; gap: 1rem; text-align: center; }}
     }}
@@ -840,6 +1058,7 @@ def build_page(sections_html, stats):
       .content {{ padding: 4.5rem 1rem 3rem; }}
       .hero h1 {{ font-size: 1.8rem; }}
       .hero-stats {{ flex-wrap: wrap; gap: 1rem; }}
+      .context-nav {{ padding: 1.15rem; }}
       .book-grid, .course-grid {{ grid-template-columns: 1fr; }}
     }}
   </style>
@@ -941,6 +1160,8 @@ def build_page(sections_html, stats):
           </div>
         </div>
       </header>
+
+      {gen_context_nav()}
 
 {sections_html}
 

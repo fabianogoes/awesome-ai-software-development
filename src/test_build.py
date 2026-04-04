@@ -77,6 +77,16 @@ claude --dangerously-skip-permissions
         self.assertIn("claude --dangerously-skip-permissions", html)
         self.assertIn("</code></pre>", html)
 
+    def test_build_page_includes_context_navigation_cards(self):
+        html = build.build_page("<section class=\"section\" id=\"purpose\"></section>", (29, 11, 4))
+
+        self.assertIn("Tabela de contexto", html)
+        self.assertIn("context-nav", html)
+        self.assertIn('href="#purpose"', html)
+        self.assertIn('href="#cli"', html)
+        self.assertIn('href="#artigos"', html)
+        self.assertIn('href="#conceitos"', html)
+
     def test_main_includes_plugins_in_generated_output_and_stats(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             base = Path(tmpdir)
