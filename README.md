@@ -18,6 +18,8 @@
   </a>
 </p>
 
+Este repositório reúne referências, ferramentas e recursos compartilháveis para quem quer entender melhor como IA está mudando a forma de projetar, construir e evoluir software.
+
 ## Tabela de contexto
 
 - [x] [Ferramentas](#ferramentas) - CLI agents, IDEs, frameworks, MCPs, plugins e skills para desenvolvimento com IA
@@ -153,6 +155,8 @@ Metodologias, templates e referências para estruturar o trabalho com IA.
 
 ## Outros
 
+- [Propósito](docs/purpose.md) — O que este projeto quer ser, o que busca fazer e o que evita
+- [Recursos Compartilhados](docs/shared-resources.md) — Skills, agents, plugins e convenções que podem ser reutilizados em outros projetos
 - [AI Concepts](CONCEPTS.md) — Glossário de termos essenciais (Chat, Prompt, Token, MCP, Agent...)
 - [Books](BOOKS.md) — Livros recomendados sobre IA e desenvolvimento
 - [Claude Tips](CLAUDE_TIPS.md) — Dicas e referências rápidas para Claude Code
