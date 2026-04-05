@@ -110,6 +110,7 @@ Coleções e repositórios com múltiplas skills prontas para uso.
 - [Agent Skills](https://agent-skills.techleads.club/skills/) — Tech Leads Club - coleção de skills para agentes de IA :star::star::star::star::star:
 - [Agency Agents](https://github.com/msitarzewski/agency-agents) — Coleção de personalidades de agentes de IA, nascida de meses de iteração da comunidade :star::star::star:
 - [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) — Coleção curada de skills para Claude
+- [claude-code-templates](https://github.com/davila7/claude-code-templates) — Coleção de templates prontos para Claude Code, disponível também em [aitmpl.com](https://www.aitmpl.com)
 
 ---
 
