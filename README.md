@@ -105,6 +105,9 @@ Skills e coleções de agentes para Claude Code e outros AI coding tools.
 | Interface Design | Skill para design de interface                                                                                                | https://github.com/Dammyjay93/interface-design                              | :star::star::star::star::star: |
 | Napkin           | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros                                          | https://github.com/blader/napkin                                            | :star:                         |
 | TLC Spec Driven  | Tech Leads Club - Skill para desenvolvimento orientado a especificações com agentes de IA                                     | https://agent-skills.techleads.club/skills/tlc-spec-driven/                 | :hourglass:                    |
+| Landing Page     | Gera landing page HTML completa com Tailwind CSS, design responsivo, dark mode e tags SEO/OG, a partir de um briefing simples | https://github.com/jezweb/claude-skills/blob/main/plugins/frontend/skills/landing-page/SKILL.md | :hourglass: |
+| AI SEO           | Skill de SEO programático com IA para escalar tráfego orgânico, geração de conteúdo em massa e otimização para AI Overviews  | https://github.com/diegosouzapw/awesome-omni-skills/blob/main/skills/ai-seo/SKILL.md            | :hourglass: |
+| Copywriting      | Copywriting especializado em conversão para páginas de marketing, com foco em clareza, benefícios e otimização para citações em IA | https://github.com/robomello/claude-code-setup/blob/main/skills/copywriting/SKILL.md      | :hourglass: |
 
 #### Repositórios de Skills
 
