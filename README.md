@@ -95,6 +95,7 @@ Plugins instaláveis que estendem AI coding tools com capacidades adicionais.
 | Frontend Design | Plugin para design e geração de frontend no Claude Code | https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design | :star::star::star::star::star: |
 | Codex for Claude Code | Plugin da OpenAI que integra o Codex ao Claude Code | https://github.com/openai/codex-plugin-cc                                   | :hourglass:                    |
 | Firecrawl       | Plugin para o Claude Code que permite rastrear e extrair conteúdo da web para alimentar fluxos de trabalho e agentes        | https://www.firecrawl.dev/integrations/claude-code                         | :hourglass:                    |
+| Caveman         | Skill para Claude Code que reduz drasticamente o uso de tokens reescrevendo respostas de forma extremamente concisa, mantendo a precisão técnica | https://github.com/JuliusBrussee/caveman | :hourglass:                    |
 
 ### Skills
 
