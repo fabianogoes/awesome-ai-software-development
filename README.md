@@ -154,6 +154,7 @@ Metodologias, templates e referências para estruturar o trabalho com IA.
 | Spec-Driven Development: Kiro, spec-kit, and Tessl | Artigo do Martin Fowler explorando ferramentas de SDD    | <https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html> |
 | Architecture Decision Record (ADR)                 | Templates e guias para registrar decisões de arquitetura | <https://github.com/joelparkerhenderson/architecture-decision-record> |
 | CLAUDE.md Guide                                    | Guia oficial da Anthropic para configurar memory files   | <https://code.claude.com/docs/en/memory>                              |
+| Arena AI                                           | Leaderboard e battle mode para comparar modelos de IA        | <https://arena.ai/>                                                  |
 
 ## Cursos
 
