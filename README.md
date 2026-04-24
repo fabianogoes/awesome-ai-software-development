@@ -98,9 +98,20 @@ Skills e coleções de agentes para Claude Code e outros AI coding tools.
 
 | Skill            | Descrição                                                                                                                     | Link                                                                        | Avaliação                      |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------ |
-| Interface Design | Skill para design de interface                                                                                                | https://github.com/Dammyjay93/interface-design                              | :star::star::star::star::star: |
-| Napkin           | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros                                          | https://github.com/blader/napkin                                            | :star:                         |
-| TLC Spec Driven  | Tech Leads Club - Skill para desenvolvimento orientado a especificações com agentes de IA                                     | https://agent-skills.techleads.club/skills/tlc-spec-driven/                 | :hourglass:                    |
+| Interface Design                   | Skill para design de interface                                                                                                | https://github.com/Dammyjay93/interface-design                                                          | :star::star::star::star::star: |
+| Napkin                             | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros                                          | https://github.com/blader/napkin                                                                        | :star:                         |
+| TLC Spec Driven                    | Tech Leads Club - Skill para desenvolvimento orientado a especificações com agentes de IA                                     | https://agent-skills.techleads.club/skills/tlc-spec-driven/                                             | :hourglass:                    |
+| Caveman                            | Skill que força o agente a escrever código simples e primitivo, evitando abstrações desnecessárias                             | https://skills.sh/juliusbrussee/caveman/caveman                                                         | :hourglass:                    |
+| Vercel React Best Practices        | Boas práticas para desenvolvimento React na plataforma Vercel                                                                 | https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices                                  | :hourglass:                    |
+| Next.js Best Practices             | Boas práticas para desenvolvimento com Next.js                                                                                | https://skills.sh/vercel-labs/next-skills/next-best-practices                                           | :hourglass:                    |
+| Drizzle ORM                        | Skill para uso do Drizzle ORM em projetos com agentes de IA                                                                   | https://skills.sh/bobmatnyc/claude-mpm-skills/drizzle-orm                                               | :hourglass:                    |
+| Supabase Postgres Best Practices   | Boas práticas para uso do Supabase e PostgreSQL em projetos com agentes de IA                                                 | https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices                                | :hourglass:                    |
+| Web Design Guidelines              | Diretrizes de design web para agentes Vercel                                                                                  | https://skills.sh/vercel-labs/agent-skills/web-design-guidelines                                        | :hourglass:                    |
+| shadcn/ui                          | Skill para uso dos componentes shadcn/ui em projetos com agentes de IA                                                        | https://skills.sh/shadcn/ui/shadcn                                                                      | :hourglass:                    |
+| Vercel Composition Patterns        | Padrões de composição de componentes e arquitetura para projetos na plataforma Vercel                                         | https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns                                  | :hourglass:                    |
+| Vitest Best Practices              | Boas práticas para escrita de testes com Vitest                                                                               | https://skills.sh/gohypergiant/agent-skills/vitest-best-practices                                       | :hourglass:                    |
+| UI/UX Pro Max                      | Skill avançada para design de interfaces e experiência do usuário                                                             | https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max                                    | :hourglass:                    |
+| SEO Audit                          | Skill para auditoria de SEO em projetos web                                                                                   | https://skills.sh/coreyhaines31/marketingskills/seo-audit                                               | :hourglass:                    |
 
 #### Repositórios de Skills
 
@@ -110,6 +121,7 @@ Coleções e repositórios com múltiplas skills prontas para uso.
 - [Agent Skills](https://agent-skills.techleads.club/skills/) — Tech Leads Club - coleção de skills para agentes de IA :star::star::star::star::star:
 - [Agency Agents](https://github.com/msitarzewski/agency-agents) — Coleção de personalidades de agentes de IA, nascida de meses de iteração da comunidade :star::star::star:
 - [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) — Coleção curada de skills para Claude
+- [skills.sh](https://skills.sh/) — Repositório de skills prontas para uso com Claude Code
 
 ---
 
@@ -155,6 +167,7 @@ Metodologias, templates e referências para estruturar o trabalho com IA.
 | Architecture Decision Record (ADR)                 | Templates e guias para registrar decisões de arquitetura | <https://github.com/joelparkerhenderson/architecture-decision-record> |
 | CLAUDE.md Guide                                    | Guia oficial da Anthropic para configurar memory files   | <https://code.claude.com/docs/en/memory>                              |
 | Arena AI                                           | Leaderboard e battle mode para comparar modelos de IA        | <https://arena.ai/>                                                  |
+| RTK (Rust Token Killer)                            | Proxy CLI que reduz o consumo de tokens LLM em 60-90% filtrando e comprimindo saídas de comandos comuns | <https://github.com/rtk-ai/rtk>                     |
 
 ## Cursos
 
