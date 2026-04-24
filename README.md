@@ -164,6 +164,7 @@ Metodologias, templates e referências para estruturar o trabalho com IA.
 | Architecture Decision Record (ADR)                 | Templates e guias para registrar decisões de arquitetura | <https://github.com/joelparkerhenderson/architecture-decision-record> |
 | CLAUDE.md Guide                                    | Guia oficial da Anthropic para configurar memory files   | <https://code.claude.com/docs/en/memory>                              |
 | Arena AI                                           | Leaderboard e battle mode para comparar modelos de IA        | <https://arena.ai/>                                                  |
+| RTK (Rust Token Killer)                            | Proxy CLI que reduz o consumo de tokens LLM em 60-90% filtrando e comprimindo saídas de comandos comuns | <https://github.com/rtk-ai/rtk>                     |
 
 ## Cursos
 
