@@ -109,6 +109,9 @@ Skills e coleções de agentes para Claude Code e outros AI coding tools.
 | Web Design Guidelines              | Diretrizes de design web para agentes Vercel                                                                                  | https://skills.sh/vercel-labs/agent-skills/web-design-guidelines                                        | :hourglass:                    |
 | shadcn/ui                          | Skill para uso dos componentes shadcn/ui em projetos com agentes de IA                                                        | https://skills.sh/shadcn/ui/shadcn                                                                      | :hourglass:                    |
 | Vercel Composition Patterns        | Padrões de composição de componentes e arquitetura para projetos na plataforma Vercel                                         | https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns                                  | :hourglass:                    |
+| Vitest Best Practices              | Boas práticas para escrita de testes com Vitest                                                                               | https://skills.sh/gohypergiant/agent-skills/vitest-best-practices                                       | :hourglass:                    |
+| UI/UX Pro Max                      | Skill avançada para design de interfaces e experiência do usuário                                                             | https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max                                    | :hourglass:                    |
+| SEO Audit                          | Skill para auditoria de SEO em projetos web                                                                                   | https://skills.sh/coreyhaines31/marketingskills/seo-audit                                               | :hourglass:                    |
 
 #### Repositórios de Skills
 
