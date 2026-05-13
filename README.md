@@ -112,6 +112,7 @@ Skills e coleções de agentes para Claude Code e outros AI coding tools.
 | Vitest Best Practices              | Boas práticas para escrita de testes com Vitest                                                    | https://skills.sh/gohypergiant/agent-skills/vitest-best-practices| :hourglass:                    |
 | UI/UX Pro Max                      | Skill avançada para design de interfaces e experiência do usuário                                  | https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max| :hourglass:                    |
 | SEO Audit                          | Skill para auditoria de SEO em projetos web                                                         | https://skills.sh/coreyhaines31/marketingskills/seo-audit    | :hourglass:                    |
+| Grill Me                           | Skill para eliminar ambiguidades no planejamento: interroga sistematicamente suas decisões de design até alcançar entendimento compartilhado | https://mcpmarket.com/tools/skills/grill-me | :hourglass:                    |
 
 #### Repositórios de Skills
 
