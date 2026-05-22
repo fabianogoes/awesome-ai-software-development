@@ -40,9 +40,9 @@ Agentes de coding no terminal — pair programming com IA direto no seu workflow
 | ----------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------- | ------------------------------ |
 | Claude Code | Agente de coding da Anthropic, profundo entendimento de codebases e contexto longo         | [code.claude.com](https://code.claude.com/docs/pt/overview) | :star::star::star::star::star: |
 | Codex       | Ferramenta de coding da OpenAI, geração e edição de código via CLI                         | [openai.com](https://openai.com/pt-BR/codex/)               | :star::star::star:             |
+| OpenCode    | Alternativa open-source ao Claude Code, suporta praticamente todos os provedores de modelo | [github.com/sst/opencode](https://github.com/sst/opencode)  | :star::star::star:             |
 | Gemini CLI  | CLI open-source do Google com integração ao Gemini e Google Search                         | [geminicli.com](https://geminicli.com/)                     | :star:                         |
 | Aider       | Pair programming no terminal, integra com Git local, suporta Claude/GPT/Ollama             | [aider.chat](https://aider.chat/)                           | :hourglass:                    |
-| OpenCode    | Alternativa open-source ao Claude Code, suporta praticamente todos os provedores de modelo | [github.com/sst/opencode](https://github.com/sst/opencode)  | :hourglass:                    |
 
 ### IDE
 
@@ -50,12 +50,12 @@ IDEs com IA integrada ao fluxo de edição.
 
 | Ferramenta               | Descrição                                                                                           | Link                             | Avaliação         |
 | ------------------------ | --------------------------------------------------------------------------------------------------- | ---------------------------------| ------------------ |
-| Cursor                   | IDE com IA nativa integrada ao fluxo de edição                                                      | https://cursor.com/              | :star::star::star: |
-| Antigravity              | IDE da Google com agente de coding agentico avançado                                                | https://antigravity.google/      | :star:             |
-| Windsurf                 | IDE com agente "Cascade" (modos Write, Chat e Turbo), concorrente direto ao Cursor                  | https://windsurf.com/            | :hourglass:        |
 | Zed                      | Editor open-source em Rust, extremamente rápido, suporta Claude, Gemini e modelos locais via Ollama | https://zed.dev/                 | :star::star::star::star::star: |
 | VS Code + GitHub Copilot | O VS Code com Copilot nativo e ecossistema de extensões de IA (Continue, Codeium, RooCode)          | https://code.visualstudio.com/   | :star::star::star: |
+| Cursor                   | IDE com IA nativa integrada ao fluxo de edição                                                      | https://cursor.com/              | :star::star:       |
+| Antigravity              | IDE da Google com agente de coding agentico avançado                                                | https://antigravity.google/      | :star:             |
 | Trae                     | IDE gratuita da ByteDance, construída sobre VS Code, com agentes de IA integrados (GPT-4 e Claude)  | https://www.trae.ai/             | :star:             |
+| Windsurf                 | IDE com agente "Cascade" (modos Write, Chat e Turbo), concorrente direto ao Cursor                  | https://windsurf.com/            | :hourglass:        |
 
 ### Frameworks/Bibliotecas
 
@@ -63,14 +63,14 @@ Frameworks e libs que potencializam o desenvolvimento com agentes de IA.
 
 | Ferramenta                   | Descrição                                                                        | Link                                                        | Avaliação                      |
 | ---------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------ |
-| GSD - GET SHIT DONE          | Framework para automação de tarefas de desenvolvimento com IA                    | https://github.com/gsd-build/get-shit-done                  | :star:                         |
-| OpenSpec                     | Framework de especificação orientado a IA                                        | https://github.com/Fission-AI/OpenSpec                      | :star::star::star:             |
-| SpecKit                      | Guia e kit para spec-driven development no GitHub                                | https://github.com/github/spec-kit/blob/main/spec-driven.md | :hourglass:                    |
 | Superpowers                  | Extensões e superpoderes para agentes de IA                                      | https://github.com/obra/superpowers                         | :star::star::star::star::star: |
-| Agent OS                     | Framework para construir e orquestrar agentes de IA com fluxos reproduzíveis     | https://buildermethods.com/agent-os                         | :hourglass:                    |
+| OpenRouter                   | Gateway unificado para 300+ modelos de IA via API compatível com OpenAI          | https://openrouter.ai                                       | :star::star::star::star:       |
+| OpenSpec                     | Framework de especificação orientado a IA                                        | https://github.com/Fission-AI/OpenSpec                      | :star::star::star:             |
 | QMD - Query Markup Documents | Documentos interativos com queries para IA                                       | https://github.com/tobi/qmd                                 | :star::star::star:             |
 | ccusage                      | Analisador de uso e custo do Claude Code                                         | https://github.com/ryoppippi/ccusage                        | :star::star::star:             |
-| OpenRouter                   | Gateway unificado para 300+ modelos de IA via API compatível com OpenAI          | https://openrouter.ai                                       | :star::star::star::star:       |
+| GSD - GET SHIT DONE          | Framework para automação de tarefas de desenvolvimento com IA                    | https://github.com/gsd-build/get-shit-done                  | :star:                         |
+| SpecKit                      | Guia e kit para spec-driven development no GitHub                                | https://github.com/github/spec-kit/blob/main/spec-driven.md | :hourglass:                    |
+| Agent OS                     | Framework para construir e orquestrar agentes de IA com fluxos reproduzíveis     | https://buildermethods.com/agent-os                         | :hourglass:                    |
 
 ### MCP
 
@@ -99,8 +99,9 @@ Skills e coleções de agentes para Claude Code e outros AI coding tools.
 | Skill            | Descrição                                                                                                            | Link                                                        | Avaliação                      |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------| ------------------------------ |
 | Interface Design                   | Skill para design de interface                                                                     | https://github.com/Dammyjay93/interface-design              | :star::star::star::star::star: |
-| Napkin                             | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros               | https://github.com/blader/napkin                            | :star:                         |
+| Andrej Karpathy Skills             | Skill baseada nas observações de Andrej Karpathy sobre falhas comuns de LLMs: pensa antes de codificar, simplicidade, mudanças cirúrgicas e execução orientada a objetivos | https://github.com/multica-ai/andrej-karpathy-skills | :star::star::star::star::star: |
 | TLC Spec Driven                    | Tech Leads Club - Skill para desenvolvimento orientado a especificações com agentes de IA          | https://agent-skills.techleads.club/skills/tlc-spec-driven/ | :star::star::star:             |
+| Napkin                             | Uma habilidade de Claude Code que dá ao agente uma memória persistente de seus erros               | https://github.com/blader/napkin                            | :star:                         |
 | Caveman                            | Skill que força o agente a escrever código simples e primitivo, evitando abstrações desnecessárias | https://skills.sh/juliusbrussee/caveman/caveman             | :hourglass:                    |
 | Vercel React Best Practices        | Boas práticas para desenvolvimento React na plataforma Vercel                                      | https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices | :hourglass:                    |
 | Next.js Best Practices             | Boas práticas para desenvolvimento com Next.js                                                     | https://skills.sh/vercel-labs/next-skills/next-best-practices| :hourglass:                    |
@@ -113,7 +114,6 @@ Skills e coleções de agentes para Claude Code e outros AI coding tools.
 | UI/UX Pro Max                      | Skill avançada para design de interfaces e experiência do usuário                                  | https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max| :hourglass:                    |
 | SEO Audit                          | Skill para auditoria de SEO em projetos web                                                         | https://skills.sh/coreyhaines31/marketingskills/seo-audit    | :hourglass:                    |
 | Grill Me                           | Skill para eliminar ambiguidades no planejamento: interroga sistematicamente suas decisões de design até alcançar entendimento compartilhado | https://mcpmarket.com/tools/skills/grill-me | :hourglass:                    |
-| Andrej Karpathy Skills             | Skill baseada nas observações de Andrej Karpathy sobre falhas comuns de LLMs: pensa antes de codificar, simplicidade, mudanças cirúrgicas e execução orientada a objetivos | https://github.com/multica-ai/andrej-karpathy-skills | :star::star::star::star::star: |
 
 #### Repositórios de Skills
 
