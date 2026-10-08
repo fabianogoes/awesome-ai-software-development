@@ -81,6 +81,7 @@ Servidores MCP e integrações para conectar AI coding tools a serviços externo
 | Grafana MCP Server | Servidor MCP para acessar instâncias Grafana e o ecossistema ao redor                                                        | https://github.com/grafana/mcp-grafana                                | :hourglass: |
 | Playwright MCP     | Servidor MCP de automação de navegador e testes E2E com Playwright, permitindo interações via snapshots de acessibilidade   | https://github.com/microsoft/playwright-mcp                           | :hourglass: |
 | Netlify MCP Server | Servidor MCP da Netlify para build, deploy e operações relacionadas                                                          | https://docs.netlify.com/build/build-with-ai/netlify-mcp-server/      | :hourglass: |
+| Tale | Endpoint MCP por implantação com 22 ferramentas de conhecimento e automação para agentes; CRUD de projetos e tarefas usa REST autenticada | https://docs.tale.dev/develop/mcp-endpoint | :hourglass: |
 
 ### Plugins
 
